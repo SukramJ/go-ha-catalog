@@ -126,6 +126,67 @@ def _allowed_values(validator: Any) -> list[str] | None:
         return None
 
 
+# _TYPE_BY_NAME maps a Home Assistant validator's name to the JSON type it
+# accepts. It exists because JSON cannot tell 1 from 1.0: a consumer generating
+# typed structs from this catalog would otherwise have to guess whether
+# `min_temp` is an integer or a float, and guessing wrong is how a discovery
+# payload ends up with a key Home Assistant rejects.
+_TYPE_BY_NAME = {
+    "boolean": "bool",
+    "positive_int": "int",
+    "positive_float": "float",
+    "ensure_list": "list",
+    "ensure_list_csv": "list",
+    "string": "str",
+    "template": "str",
+    "valid_subscribe_topic": "str",
+    "valid_publish_topic": "str",
+    "icon": "str",
+    "url": "str",
+}
+
+_TYPE_BY_PY = {bool: "bool", int: "int", float: "float", str: "str"}
+
+
+def _value_type(validator: Any, depth: int = 0) -> str | None:
+    """Name the JSON type a validator accepts: bool, int, float, list or str.
+
+    Returns None when the validator says nothing useful (a bare `vol.Range`,
+    a whitelist, a custom callable) — the consumer then falls back to its own
+    default rather than being told something wrong.
+    """
+    if depth > 6:
+        return None
+    if isinstance(validator, (list, tuple, set)):
+        return "list"
+    # vol.Coerce carries the target type; a bare builtin is used directly.
+    coerced = getattr(validator, "type", None)
+    for candidate in (coerced, validator):
+        # `in` on the lookup table hashes the candidate, and a schema object is
+        # unhashable — compare identity against the four builtins instead.
+        for py_type, name in _TYPE_BY_PY.items():
+            if candidate is py_type:
+                return name
+    name = getattr(validator, "__name__", None) or type(validator).__name__
+    if name in _TYPE_BY_NAME:
+        return _TYPE_BY_NAME[name]
+    # vol.All / vol.Any wrap the validator that actually names the type; the
+    # first that does wins, which is why ensure_list must precede [cv.string].
+    for sub in getattr(validator, "validators", ()) or ():
+        found = _value_type(sub, depth + 1)
+        if found:
+            return found
+    # A hand-written validator function names its type in its return
+    # annotation, which is how `valid_qos_schema` is known to yield an int.
+    annotated = getattr(validator, "__annotations__", {}).get("return")
+    for py_type, name in _TYPE_BY_PY.items():
+        if annotated is py_type:
+            return name
+    if getattr(annotated, "__origin__", None) in (list, set, tuple):
+        return "list"
+    return None
+
+
 def collect_schema(schema: Any, out: dict[str, dict[str, Any]]) -> None:
     """Walk a (probatio) schema recursively, collecting its top-level keys.
 
@@ -144,6 +205,9 @@ def collect_schema(schema: Any, out: dict[str, dict[str, Any]]) -> None:
                 allowed = _allowed_values(validator)
                 if allowed:
                     entry["allowed"] = allowed
+                value_type = _value_type(validator)
+                if value_type:
+                    entry["type"] = value_type
                 out[name] = entry
         else:
             collect_schema(inner, out)

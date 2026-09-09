@@ -74,6 +74,13 @@ type SchemaKey struct {
 	// mode lists (hvac modes, fan modes) are deliberately unconstrained at the
 	// schema level and only checked at entity setup.
 	Allowed []string `json:"allowed,omitempty"`
+	// Type names the JSON type the key's validator accepts: "bool", "int",
+	// "float", "list" or "str". Empty when the validator says nothing useful.
+	//
+	// It exists because JSON cannot tell 1 from 1.0, and a consumer generating
+	// typed structs from this catalog would otherwise have to guess whether
+	// min_temp is an integer or a float.
+	Type string `json:"type,omitempty"`
 }
 
 // PlatformSchema is the set of discovery keys one MQTT platform accepts.
