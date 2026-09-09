@@ -383,8 +383,14 @@ def extract_relations() -> dict[str, Any]:
     }
     out["sensor_default_precision_limit"] = getattr(sensor_const, "DEFAULT_PRECISION_LIMIT", None)
 
-    # AMBIGUOUS_UNITS is why a bridge must never hand-write "µ": HA rewrites the
-    # legacy micro sign to U+03BC, and a config that disagrees is discarded whole.
+    # AMBIGUOUS_UNITS is how Home Assistant reconciles the two Unicode spellings
+    # of a micro prefix. sensor/__init__.py's
+    # _native_unit_of_measurement_compat looks the unit up with
+    # `AMBIGUOUS_UNITS.get(unit, unit)`, so the legacy U+00B5 spelling is
+    # accepted and rewritten to U+03BC rather than rejected. A bridge should
+    # publish the canonical spelling — it is what Home Assistant stores — but
+    # the old one works, so a consumer reading this table must report a
+    # mismatch as an advisory, not as a reason to withhold the entity.
     out["ambiguous_units"] = dict(getattr(sensor_const, "AMBIGUOUS_UNITS", {}))
 
     try:

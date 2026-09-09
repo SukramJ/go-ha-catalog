@@ -144,8 +144,14 @@ type Relations struct {
 	SensorDefaultPrecisionLimit *int `json:"sensor_default_precision_limit"`
 	// AmbiguousUnits maps a unit spelling Home Assistant silently rewrites to
 	// the canonical form it rewrites it to — most importantly the legacy micro
-	// sign U+00B5 to U+03BC. Emit the canonical form; a config that disagrees
-	// is discarded whole, with no error anywhere.
+	// sign U+00B5 to U+03BC.
+	//
+	// Emit the canonical form: it is what Home Assistant stores, so the two
+	// planes agree without a translation step. But the rewrite is a
+	// `.get(unit, unit)` in sensor/__init__.py's
+	// _native_unit_of_measurement_compat, which means the legacy spelling is
+	// accepted, not rejected — so a mismatch is an advisory, never a reason to
+	// withhold the entity.
 	AmbiguousUnits map[string]string `json:"ambiguous_units"`
 	// NumberDeviceClassUnits is the number platform's device class to unit map.
 	NumberDeviceClassUnits map[string][]string `json:"number_device_class_units"`
