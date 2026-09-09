@@ -290,7 +290,8 @@
   "device_discovery_schema": {
     "availability": {
       "default": null,
-      "required": false
+      "required": false,
+      "type": "list"
     },
     "availability_mode": {
       "allowed": [
@@ -299,19 +300,23 @@
         "latest"
       ],
       "default": "latest",
-      "required": false
+      "required": false,
+      "type": "str"
     },
     "availability_template": {
       "default": null,
-      "required": false
+      "required": false,
+      "type": "str"
     },
     "availability_topic": {
       "default": null,
-      "required": false
+      "required": false,
+      "type": "str"
     },
     "command_topic": {
       "default": null,
-      "required": false
+      "required": false,
+      "type": "str"
     },
     "components": {
       "default": null,
@@ -323,11 +328,13 @@
     },
     "encoding": {
       "default": null,
-      "required": false
+      "required": false,
+      "type": "str"
     },
     "message_expiry_interval": {
       "default": null,
-      "required": false
+      "required": false,
+      "type": "int"
     },
     "origin": {
       "default": null,
@@ -335,75 +342,92 @@
     },
     "payload_available": {
       "default": "online",
-      "required": false
+      "required": false,
+      "type": "str"
     },
     "payload_not_available": {
       "default": "offline",
-      "required": false
+      "required": false,
+      "type": "str"
     },
     "qos": {
       "default": null,
-      "required": false
+      "required": false,
+      "type": "int"
     },
     "state_topic": {
       "default": null,
-      "required": false
+      "required": false,
+      "type": "str"
     }
   },
   "device_info_schema": {
     "configuration_url": {
       "default": null,
-      "required": false
+      "required": false,
+      "type": "str"
     },
     "connections": {
       "default": [],
-      "required": false
+      "required": false,
+      "type": "list"
     },
     "hw_version": {
       "default": null,
-      "required": false
+      "required": false,
+      "type": "str"
     },
     "identifiers": {
       "default": [],
-      "required": false
+      "required": false,
+      "type": "list"
     },
     "manufacturer": {
       "default": null,
-      "required": false
+      "required": false,
+      "type": "str"
     },
     "model": {
       "default": null,
-      "required": false
+      "required": false,
+      "type": "str"
     },
     "model_id": {
       "default": null,
-      "required": false
+      "required": false,
+      "type": "str"
     },
     "name": {
       "default": null,
-      "required": false
+      "required": false,
+      "type": "str"
     },
     "serial_number": {
       "default": null,
-      "required": false
+      "required": false,
+      "type": "str"
     },
     "suggested_area": {
       "default": null,
-      "required": false
+      "required": false,
+      "type": "str"
     },
     "sw_version": {
       "default": null,
-      "required": false
+      "required": false,
+      "type": "str"
     },
     "via_device": {
       "default": null,
-      "required": false
+      "required": false,
+      "type": "str"
     }
   },
   "entity_common_schema": {
     "availability": {
       "default": null,
-      "required": false
+      "required": false,
+      "type": "list"
     },
     "availability_mode": {
       "allowed": [
@@ -412,19 +436,23 @@
         "latest"
       ],
       "default": "latest",
-      "required": false
+      "required": false,
+      "type": "str"
     },
     "availability_template": {
       "default": null,
-      "required": false
+      "required": false,
+      "type": "str"
     },
     "availability_topic": {
       "default": null,
-      "required": false
+      "required": false,
+      "type": "str"
     },
     "default_entity_id": {
       "default": null,
-      "required": false
+      "required": false,
+      "type": "str"
     },
     "device": {
       "default": null,
@@ -432,7 +460,8 @@
     },
     "enabled_by_default": {
       "default": true,
-      "required": false
+      "required": false,
+      "type": "bool"
     },
     "entity_category": {
       "default": null,
@@ -440,23 +469,28 @@
     },
     "entity_picture": {
       "default": null,
-      "required": false
+      "required": false,
+      "type": "str"
     },
     "icon": {
       "default": null,
-      "required": false
+      "required": false,
+      "type": "str"
     },
     "json_attributes_template": {
       "default": null,
-      "required": false
+      "required": false,
+      "type": "str"
     },
     "json_attributes_topic": {
       "default": null,
-      "required": false
+      "required": false,
+      "type": "str"
     },
     "message_expiry_interval": {
       "default": null,
-      "required": false
+      "required": false,
+      "type": "int"
     },
     "origin": {
       "default": null,
@@ -464,19 +498,23 @@
     },
     "payload_available": {
       "default": "online",
-      "required": false
+      "required": false,
+      "type": "str"
     },
     "payload_not_available": {
       "default": "offline",
-      "required": false
+      "required": false,
+      "type": "str"
     },
     "unique_id": {
       "default": null,
-      "required": false
+      "required": false,
+      "type": "str"
     },
     "visible_by_default": {
       "default": true,
-      "required": false
+      "required": false,
+      "type": "bool"
     }
   },
   "feature_strings": {
@@ -514,15 +552,18 @@
   "origin_info_schema": {
     "name": {
       "default": null,
-      "required": true
+      "required": true,
+      "type": "str"
     },
     "support_url": {
       "default": null,
-      "required": false
+      "required": false,
+      "type": "str"
     },
     "sw_version": {
       "default": null,
-      "required": false
+      "required": false,
+      "type": "str"
     }
   },
   "platforms": {
@@ -530,7 +571,8 @@
       "keys": {
         "availability": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "availability_mode": {
           "allowed": [
@@ -539,43 +581,53 @@
             "latest"
           ],
           "default": "latest",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "availability_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "availability_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "code": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "code_arm_required": {
           "default": true,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "code_disarm_required": {
           "default": true,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "code_trigger_required": {
           "default": true,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "command_template": {
           "default": "{{action}}",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "command_topic": {
           "default": null,
-          "required": true
+          "required": true,
+          "type": "str"
         },
         "default_entity_id": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "device": {
           "default": null,
@@ -583,11 +635,13 @@
         },
         "enabled_by_default": {
           "default": true,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "encoding": {
           "default": "utf-8",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "entity_category": {
           "default": null,
@@ -595,31 +649,38 @@
         },
         "entity_picture": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "group": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "icon": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "json_attributes_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "json_attributes_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "message_expiry_interval": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "name": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "origin": {
           "default": null,
@@ -627,51 +688,63 @@
         },
         "payload_arm_away": {
           "default": "ARM_AWAY",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_arm_custom_bypass": {
           "default": "ARM_CUSTOM_BYPASS",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_arm_home": {
           "default": "ARM_HOME",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_arm_night": {
           "default": "ARM_NIGHT",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_arm_vacation": {
           "default": "ARM_VACATION",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_available": {
           "default": "online",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_disarm": {
           "default": "DISARM",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_not_available": {
           "default": "offline",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_trigger": {
           "default": "TRIGGER",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "qos": {
           "default": 0,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "retain": {
           "default": false,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "state_topic": {
           "default": null,
-          "required": true
+          "required": true,
+          "type": "str"
         },
         "supported_features": {
           "default": [
@@ -682,19 +755,23 @@
             "arm_vacation",
             "trigger"
           ],
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "unique_id": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "value_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "visible_by_default": {
           "default": true,
-          "required": false
+          "required": false,
+          "type": "bool"
         }
       }
     },
@@ -702,7 +779,8 @@
       "keys": {
         "availability": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "availability_mode": {
           "allowed": [
@@ -711,19 +789,23 @@
             "latest"
           ],
           "default": "latest",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "availability_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "availability_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "default_entity_id": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "device": {
           "default": null,
@@ -735,11 +817,13 @@
         },
         "enabled_by_default": {
           "default": true,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "encoding": {
           "default": "utf-8",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "entity_category": {
           "default": null,
@@ -747,43 +831,53 @@
         },
         "entity_picture": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "expire_after": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "force_update": {
           "default": false,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "group": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "icon": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "json_attributes_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "json_attributes_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "message_expiry_interval": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "name": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "off_delay": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "origin": {
           "default": null,
@@ -791,39 +885,48 @@
         },
         "payload_available": {
           "default": "online",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_not_available": {
           "default": "offline",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_off": {
           "default": "OFF",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_on": {
           "default": "ON",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "qos": {
           "default": 0,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "state_topic": {
           "default": null,
-          "required": true
+          "required": true,
+          "type": "str"
         },
         "unique_id": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "value_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "visible_by_default": {
           "default": true,
-          "required": false
+          "required": false,
+          "type": "bool"
         }
       }
     },
@@ -831,7 +934,8 @@
       "keys": {
         "availability": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "availability_mode": {
           "allowed": [
@@ -840,27 +944,33 @@
             "latest"
           ],
           "default": "latest",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "availability_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "availability_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "command_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "command_topic": {
           "default": null,
-          "required": true
+          "required": true,
+          "type": "str"
         },
         "default_entity_id": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "device": {
           "default": null,
@@ -872,11 +982,13 @@
         },
         "enabled_by_default": {
           "default": true,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "encoding": {
           "default": "utf-8",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "entity_category": {
           "default": null,
@@ -884,31 +996,38 @@
         },
         "entity_picture": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "group": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "icon": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "json_attributes_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "json_attributes_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "message_expiry_interval": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "name": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "origin": {
           "default": null,
@@ -916,31 +1035,38 @@
         },
         "payload_available": {
           "default": "online",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_not_available": {
           "default": "offline",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_press": {
           "default": "PRESS",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "qos": {
           "default": 0,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "retain": {
           "default": false,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "unique_id": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "visible_by_default": {
           "default": true,
-          "required": false
+          "required": false,
+          "type": "bool"
         }
       }
     },
@@ -948,7 +1074,8 @@
       "keys": {
         "availability": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "availability_mode": {
           "allowed": [
@@ -957,19 +1084,23 @@
             "latest"
           ],
           "default": "latest",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "availability_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "availability_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "default_entity_id": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "device": {
           "default": null,
@@ -977,11 +1108,13 @@
         },
         "enabled_by_default": {
           "default": true,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "encoding": {
           "default": "utf-8",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "entity_category": {
           "default": null,
@@ -989,15 +1122,18 @@
         },
         "entity_picture": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "group": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "icon": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "image_encoding": {
           "default": null,
@@ -1005,19 +1141,23 @@
         },
         "json_attributes_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "json_attributes_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "message_expiry_interval": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "name": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "origin": {
           "default": null,
@@ -1025,27 +1165,33 @@
         },
         "payload_available": {
           "default": "online",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_not_available": {
           "default": "offline",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "qos": {
           "default": 0,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "topic": {
           "default": null,
-          "required": true
+          "required": true,
+          "type": "str"
         },
         "unique_id": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "visible_by_default": {
           "default": true,
-          "required": false
+          "required": false,
+          "type": "bool"
         }
       }
     },
@@ -1053,15 +1199,18 @@
       "keys": {
         "action_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "action_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "availability": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "availability_mode": {
           "allowed": [
@@ -1070,35 +1219,43 @@
             "latest"
           ],
           "default": "latest",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "availability_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "availability_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "current_humidity_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "current_humidity_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "current_temperature_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "current_temperature_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "default_entity_id": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "device": {
           "default": null,
@@ -1106,11 +1263,13 @@
         },
         "enabled_by_default": {
           "default": true,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "encoding": {
           "default": "utf-8",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "entity_category": {
           "default": null,
@@ -1118,23 +1277,28 @@
         },
         "entity_picture": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "fan_mode_command_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "fan_mode_command_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "fan_mode_state_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "fan_mode_state_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "fan_modes": {
           "default": [
@@ -1143,63 +1307,78 @@
             "low",
             "medium"
           ],
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "group": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "icon": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "initial": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "float"
         },
         "json_attributes_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "json_attributes_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "max_humidity": {
           "default": 99,
-          "required": false
+          "required": false,
+          "type": "float"
         },
         "max_temp": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "float"
         },
         "message_expiry_interval": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "min_humidity": {
           "default": 30,
-          "required": false
+          "required": false,
+          "type": "float"
         },
         "min_temp": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "float"
         },
         "mode_command_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "mode_command_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "mode_state_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "mode_state_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "modes": {
           "default": [
@@ -1210,15 +1389,18 @@
             "heat",
             "off"
           ],
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "name": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "optimistic": {
           "default": false,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "origin": {
           "default": null,
@@ -1226,27 +1408,33 @@
         },
         "payload_available": {
           "default": "online",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_not_available": {
           "default": "offline",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_off": {
           "default": "OFF",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_on": {
           "default": "ON",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "power_command_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "power_command_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "precision": {
           "allowed": [
@@ -1255,149 +1443,184 @@
             "1"
           ],
           "default": null,
-          "required": false
+          "required": false,
+          "type": "float"
         },
         "preset_mode_command_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "preset_mode_command_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "preset_mode_state_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "preset_mode_value_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "preset_modes": {
           "default": [],
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "qos": {
           "default": 0,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "retain": {
           "default": false,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "swing_horizontal_mode_command_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "swing_horizontal_mode_command_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "swing_horizontal_mode_state_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "swing_horizontal_mode_state_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "swing_horizontal_modes": {
           "default": [
             "off",
             "on"
           ],
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "swing_mode_command_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "swing_mode_command_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "swing_mode_state_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "swing_mode_state_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "swing_modes": {
           "default": [
             "off",
             "on"
           ],
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "target_humidity_command_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "target_humidity_command_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "target_humidity_state_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "target_humidity_state_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "temp_step": {
           "default": 1.0,
-          "required": false
+          "required": false,
+          "type": "float"
         },
         "temperature_command_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "temperature_command_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "temperature_high_command_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "temperature_high_command_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "temperature_high_state_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "temperature_high_state_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "temperature_low_command_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "temperature_low_command_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "temperature_low_state_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "temperature_low_state_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "temperature_state_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "temperature_state_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "temperature_unit": {
           "default": null,
@@ -1405,15 +1628,18 @@
         },
         "unique_id": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "value_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "visible_by_default": {
           "default": true,
-          "required": false
+          "required": false,
+          "type": "bool"
         }
       }
     },
@@ -1421,7 +1647,8 @@
       "keys": {
         "availability": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "availability_mode": {
           "allowed": [
@@ -1430,23 +1657,28 @@
             "latest"
           ],
           "default": "latest",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "availability_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "availability_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "command_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "default_entity_id": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "device": {
           "default": null,
@@ -1458,11 +1690,13 @@
         },
         "enabled_by_default": {
           "default": true,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "encoding": {
           "default": "utf-8",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "entity_category": {
           "default": null,
@@ -1470,35 +1704,43 @@
         },
         "entity_picture": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "group": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "icon": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "json_attributes_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "json_attributes_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "message_expiry_interval": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "name": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "optimistic": {
           "default": false,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "origin": {
           "default": null,
@@ -1506,131 +1748,163 @@
         },
         "payload_available": {
           "default": "online",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_close": {
           "default": "CLOSE",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_not_available": {
           "default": "offline",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_open": {
           "default": "OPEN",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_stop": {
           "default": "STOP",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_stop_tilt": {
           "default": "STOP",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "position_closed": {
           "default": 0,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "position_open": {
           "default": 100,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "position_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "position_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "qos": {
           "default": 0,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "retain": {
           "default": false,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "set_position_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "set_position_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "state_closed": {
           "default": "closed",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "state_closing": {
           "default": "closing",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "state_open": {
           "default": "open",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "state_opening": {
           "default": "opening",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "state_stopped": {
           "default": "stopped",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "state_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "tilt_closed_value": {
           "default": 0,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "tilt_command_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "tilt_command_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "tilt_max": {
           "default": 100,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "tilt_min": {
           "default": 0,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "tilt_opened_value": {
           "default": 100,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "tilt_optimistic": {
           "default": false,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "tilt_status_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "tilt_status_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "unique_id": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "value_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "visible_by_default": {
           "default": true,
-          "required": false
+          "required": false,
+          "type": "bool"
         }
       }
     },
@@ -1638,7 +1912,8 @@
       "keys": {
         "availability": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "availability_mode": {
           "allowed": [
@@ -1647,27 +1922,33 @@
             "latest"
           ],
           "default": "latest",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "availability_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "availability_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "command_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "command_topic": {
           "default": null,
-          "required": true
+          "required": true,
+          "type": "str"
         },
         "default_entity_id": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "device": {
           "default": null,
@@ -1675,11 +1956,13 @@
         },
         "enabled_by_default": {
           "default": true,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "encoding": {
           "default": "utf-8",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "entity_category": {
           "default": null,
@@ -1687,35 +1970,43 @@
         },
         "entity_picture": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "group": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "icon": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "json_attributes_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "json_attributes_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "message_expiry_interval": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "name": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "optimistic": {
           "default": false,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "origin": {
           "default": null,
@@ -1723,35 +2014,43 @@
         },
         "payload_available": {
           "default": "online",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_not_available": {
           "default": "offline",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "qos": {
           "default": 0,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "retain": {
           "default": false,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "state_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "unique_id": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "value_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "visible_by_default": {
           "default": true,
-          "required": false
+          "required": false,
+          "type": "bool"
         }
       }
     },
@@ -1759,7 +2058,8 @@
       "keys": {
         "availability": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "availability_mode": {
           "allowed": [
@@ -1768,27 +2068,33 @@
             "latest"
           ],
           "default": "latest",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "availability_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "availability_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "command_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "command_topic": {
           "default": null,
-          "required": true
+          "required": true,
+          "type": "str"
         },
         "default_entity_id": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "device": {
           "default": null,
@@ -1796,11 +2102,13 @@
         },
         "enabled_by_default": {
           "default": true,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "encoding": {
           "default": "utf-8",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "entity_category": {
           "default": null,
@@ -1808,35 +2116,43 @@
         },
         "entity_picture": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "group": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "icon": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "json_attributes_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "json_attributes_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "message_expiry_interval": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "name": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "optimistic": {
           "default": false,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "origin": {
           "default": null,
@@ -1844,39 +2160,48 @@
         },
         "payload_available": {
           "default": "online",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_not_available": {
           "default": "offline",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "qos": {
           "default": 0,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "retain": {
           "default": false,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "state_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "timezone": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "unique_id": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "value_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "visible_by_default": {
           "default": true,
-          "required": false
+          "required": false,
+          "type": "bool"
         }
       }
     },
@@ -1891,15 +2216,18 @@
         },
         "encoding": {
           "default": "utf-8",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "group": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "qos": {
           "default": 0,
-          "required": false
+          "required": false,
+          "type": "int"
         }
       }
     },
@@ -1907,7 +2235,8 @@
       "keys": {
         "availability": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "availability_mode": {
           "allowed": [
@@ -1916,19 +2245,23 @@
             "latest"
           ],
           "default": "latest",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "availability_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "availability_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "default_entity_id": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "device": {
           "default": null,
@@ -1936,11 +2269,13 @@
         },
         "enabled_by_default": {
           "default": true,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "encoding": {
           "default": "utf-8",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "entity_category": {
           "default": null,
@@ -1948,31 +2283,38 @@
         },
         "entity_picture": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "group": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "icon": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "json_attributes_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "json_attributes_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "message_expiry_interval": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "name": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "origin": {
           "default": null,
@@ -1980,27 +2322,33 @@
         },
         "payload_available": {
           "default": "online",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_home": {
           "default": "home",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_not_available": {
           "default": "offline",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_not_home": {
           "default": "not_home",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_reset": {
           "default": "None",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "qos": {
           "default": 0,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "source_type": {
           "default": "gps",
@@ -2008,19 +2356,23 @@
         },
         "state_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "unique_id": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "value_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "visible_by_default": {
           "default": true,
-          "required": false
+          "required": false,
+          "type": "bool"
         }
       }
     },
@@ -2028,7 +2380,8 @@
       "keys": {
         "availability": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "availability_mode": {
           "allowed": [
@@ -2037,19 +2390,23 @@
             "latest"
           ],
           "default": "latest",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "availability_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "availability_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "default_entity_id": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "device": {
           "default": null,
@@ -2061,11 +2418,13 @@
         },
         "enabled_by_default": {
           "default": true,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "encoding": {
           "default": "utf-8",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "entity_category": {
           "default": null,
@@ -2073,35 +2432,43 @@
         },
         "entity_picture": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "event_types": {
           "default": null,
-          "required": true
+          "required": true,
+          "type": "list"
         },
         "group": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "icon": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "json_attributes_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "json_attributes_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "message_expiry_interval": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "name": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "origin": {
           "default": null,
@@ -2109,31 +2476,38 @@
         },
         "payload_available": {
           "default": "online",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_not_available": {
           "default": "offline",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "qos": {
           "default": 0,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "state_topic": {
           "default": null,
-          "required": true
+          "required": true,
+          "type": "str"
         },
         "unique_id": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "value_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "visible_by_default": {
           "default": true,
-          "required": false
+          "required": false,
+          "type": "bool"
         }
       }
     },
@@ -2141,7 +2515,8 @@
       "keys": {
         "availability": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "availability_mode": {
           "allowed": [
@@ -2150,27 +2525,33 @@
             "latest"
           ],
           "default": "latest",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "availability_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "availability_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "command_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "command_topic": {
           "default": null,
-          "required": true
+          "required": true,
+          "type": "str"
         },
         "default_entity_id": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "device": {
           "default": null,
@@ -2178,27 +2559,33 @@
         },
         "direction_command_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "direction_command_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "direction_state_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "direction_value_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "enabled_by_default": {
           "default": true,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "encoding": {
           "default": "utf-8",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "entity_category": {
           "default": null,
@@ -2206,35 +2593,43 @@
         },
         "entity_picture": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "group": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "icon": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "json_attributes_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "json_attributes_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "message_expiry_interval": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "name": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "optimistic": {
           "default": false,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "origin": {
           "default": null,
@@ -2242,119 +2637,148 @@
         },
         "oscillation_command_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "oscillation_command_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "oscillation_state_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "oscillation_value_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_available": {
           "default": "online",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_not_available": {
           "default": "offline",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_off": {
           "default": "OFF",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_on": {
           "default": "ON",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_oscillation_off": {
           "default": "oscillate_off",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_oscillation_on": {
           "default": "oscillate_on",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_reset_percentage": {
           "default": "None",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_reset_preset_mode": {
           "default": "None",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "percentage_command_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "percentage_command_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "percentage_state_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "percentage_value_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "preset_mode_command_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "preset_mode_command_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "preset_mode_state_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "preset_mode_value_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "preset_modes": {
           "default": [],
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "qos": {
           "default": 0,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "retain": {
           "default": false,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "speed_range_max": {
           "default": 100,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "speed_range_min": {
           "default": 1,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "state_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "state_value_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "unique_id": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "visible_by_default": {
           "default": true,
-          "required": false
+          "required": false,
+          "type": "bool"
         }
       }
     },
@@ -2362,15 +2786,18 @@
       "keys": {
         "action_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "action_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "availability": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "availability_mode": {
           "allowed": [
@@ -2379,35 +2806,43 @@
             "latest"
           ],
           "default": "latest",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "availability_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "availability_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "command_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "command_topic": {
           "default": null,
-          "required": true
+          "required": true,
+          "type": "str"
         },
         "current_humidity_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "current_humidity_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "default_entity_id": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "device": {
           "default": null,
@@ -2423,11 +2858,13 @@
         },
         "enabled_by_default": {
           "default": true,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "encoding": {
           "default": "utf-8",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "entity_category": {
           "default": null,
@@ -2435,63 +2872,78 @@
         },
         "entity_picture": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "group": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "icon": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "json_attributes_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "json_attributes_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "max_humidity": {
           "default": 100,
-          "required": false
+          "required": false,
+          "type": "float"
         },
         "message_expiry_interval": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "min_humidity": {
           "default": 0,
-          "required": false
+          "required": false,
+          "type": "float"
         },
         "mode_command_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "mode_command_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "mode_state_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "mode_state_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "modes": {
           "default": [],
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "name": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "optimistic": {
           "default": false,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "origin": {
           "default": null,
@@ -2499,67 +2951,83 @@
         },
         "payload_available": {
           "default": "online",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_not_available": {
           "default": "offline",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_off": {
           "default": "OFF",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_on": {
           "default": "ON",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_reset_humidity": {
           "default": "None",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_reset_mode": {
           "default": "None",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "qos": {
           "default": 0,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "retain": {
           "default": false,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "state_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "state_value_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "target_humidity_command_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "target_humidity_command_topic": {
           "default": null,
-          "required": true
+          "required": true,
+          "type": "str"
         },
         "target_humidity_state_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "target_humidity_state_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "unique_id": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "visible_by_default": {
           "default": true,
-          "required": false
+          "required": false,
+          "type": "bool"
         }
       }
     },
@@ -2567,7 +3035,8 @@
       "keys": {
         "availability": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "availability_mode": {
           "allowed": [
@@ -2576,23 +3045,28 @@
             "latest"
           ],
           "default": "latest",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "availability_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "availability_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "content_type": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "default_entity_id": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "device": {
           "default": null,
@@ -2600,11 +3074,13 @@
         },
         "enabled_by_default": {
           "default": true,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "encoding": {
           "default": "utf-8",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "entity_category": {
           "default": null,
@@ -2612,15 +3088,18 @@
         },
         "entity_picture": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "group": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "icon": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "image_encoding": {
           "allowed": [
@@ -2632,23 +3111,28 @@
         },
         "image_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "json_attributes_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "json_attributes_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "message_expiry_interval": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "name": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "origin": {
           "default": null,
@@ -2656,31 +3140,38 @@
         },
         "payload_available": {
           "default": "online",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_not_available": {
           "default": "offline",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "qos": {
           "default": 0,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "unique_id": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "url_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "url_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "visible_by_default": {
           "default": true,
-          "required": false
+          "required": false,
+          "type": "bool"
         }
       }
     },
@@ -2691,7 +3182,8 @@
           "keys": {
             "availability": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "list"
             },
             "availability_mode": {
               "allowed": [
@@ -2700,27 +3192,33 @@
                 "latest"
               ],
               "default": "latest",
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "availability_template": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "availability_topic": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "command_template": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "command_topic": {
               "default": null,
-              "required": true
+              "required": true,
+              "type": "str"
             },
             "default_entity_id": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "device": {
               "default": null,
@@ -2728,11 +3226,13 @@
             },
             "enabled_by_default": {
               "default": true,
-              "required": false
+              "required": false,
+              "type": "bool"
             },
             "encoding": {
               "default": "utf-8",
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "entity_category": {
               "default": null,
@@ -2740,31 +3240,38 @@
             },
             "entity_picture": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "group": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "list"
             },
             "icon": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "json_attributes_template": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "json_attributes_topic": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "message_expiry_interval": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "int"
             },
             "name": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "origin": {
               "default": null,
@@ -2772,19 +3279,23 @@
             },
             "payload_available": {
               "default": "online",
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "payload_not_available": {
               "default": "offline",
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "qos": {
               "default": 0,
-              "required": false
+              "required": false,
+              "type": "int"
             },
             "retain": {
               "default": false,
-              "required": false
+              "required": false,
+              "type": "bool"
             },
             "schema": {
               "default": null,
@@ -2792,11 +3303,13 @@
             },
             "unique_id": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "visible_by_default": {
               "default": true,
-              "required": false
+              "required": false,
+              "type": "bool"
             }
           }
         },
@@ -2804,7 +3317,8 @@
           "keys": {
             "availability": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "list"
             },
             "availability_mode": {
               "allowed": [
@@ -2813,19 +3327,23 @@
                 "latest"
               ],
               "default": "latest",
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "availability_template": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "availability_topic": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "default_entity_id": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "device": {
               "default": null,
@@ -2833,11 +3351,13 @@
             },
             "enabled_by_default": {
               "default": true,
-              "required": false
+              "required": false,
+              "type": "bool"
             },
             "encoding": {
               "default": "utf-8",
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "entity_category": {
               "default": null,
@@ -2845,31 +3365,38 @@
             },
             "entity_picture": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "group": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "list"
             },
             "icon": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "json_attributes_template": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "json_attributes_topic": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "message_expiry_interval": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "int"
             },
             "name": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "origin": {
               "default": null,
@@ -2877,15 +3404,18 @@
             },
             "payload_available": {
               "default": "online",
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "payload_not_available": {
               "default": "offline",
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "qos": {
               "default": 0,
-              "required": false
+              "required": false,
+              "type": "int"
             },
             "schema": {
               "default": null,
@@ -2893,19 +3423,23 @@
             },
             "state_topic": {
               "default": null,
-              "required": true
+              "required": true,
+              "type": "str"
             },
             "unique_id": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "value_template": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "visible_by_default": {
               "default": true,
-              "required": false
+              "required": false,
+              "type": "bool"
             }
           }
         }
@@ -2915,15 +3449,18 @@
       "keys": {
         "activity_state_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "activity_value_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "availability": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "availability_mode": {
           "allowed": [
@@ -2932,19 +3469,23 @@
             "latest"
           ],
           "default": "latest",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "availability_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "availability_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "default_entity_id": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "device": {
           "default": null,
@@ -2952,19 +3493,23 @@
         },
         "dock_command_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "dock_command_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "enabled_by_default": {
           "default": true,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "encoding": {
           "default": "utf-8",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "entity_category": {
           "default": null,
@@ -2972,35 +3517,43 @@
         },
         "entity_picture": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "group": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "icon": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "json_attributes_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "json_attributes_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "message_expiry_interval": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "name": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "optimistic": {
           "default": false,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "origin": {
           "default": null,
@@ -3008,43 +3561,53 @@
         },
         "pause_command_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "pause_command_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_available": {
           "default": "online",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_not_available": {
           "default": "offline",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "qos": {
           "default": 0,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "retain": {
           "default": false,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "start_mowing_command_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "start_mowing_command_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "unique_id": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "visible_by_default": {
           "default": true,
-          "required": false
+          "required": false,
+          "type": "bool"
         }
       }
     },
@@ -3055,7 +3618,8 @@
           "keys": {
             "availability": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "list"
             },
             "availability_mode": {
               "allowed": [
@@ -3064,71 +3628,88 @@
                 "latest"
               ],
               "default": "latest",
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "availability_template": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "availability_topic": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "brightness_command_template": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "brightness_command_topic": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "brightness_scale": {
               "default": 255,
-              "required": false
+              "required": false,
+              "type": "int"
             },
             "brightness_state_topic": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "brightness_value_template": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "color_mode_state_topic": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "color_mode_value_template": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "color_temp_command_template": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "color_temp_command_topic": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "color_temp_kelvin": {
               "default": false,
-              "required": false
+              "required": false,
+              "type": "bool"
             },
             "color_temp_state_topic": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "color_temp_value_template": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "command_topic": {
               "default": null,
-              "required": true
+              "required": true,
+              "type": "str"
             },
             "default_entity_id": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "device": {
               "default": null,
@@ -3136,31 +3717,38 @@
             },
             "effect_command_template": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "effect_command_topic": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "effect_list": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "list"
             },
             "effect_state_topic": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "effect_value_template": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "enabled_by_default": {
               "default": true,
-              "required": false
+              "required": false,
+              "type": "bool"
             },
             "encoding": {
               "default": "utf-8",
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "entity_category": {
               "default": null,
@@ -3168,63 +3756,78 @@
             },
             "entity_picture": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "group": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "list"
             },
             "hs_command_template": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "hs_command_topic": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "hs_state_topic": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "hs_value_template": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "icon": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "json_attributes_template": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "json_attributes_topic": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "max_kelvin": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "int"
             },
             "max_mireds": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "int"
             },
             "message_expiry_interval": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "int"
             },
             "min_kelvin": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "int"
             },
             "min_mireds": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "int"
             },
             "name": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "on_command_type": {
               "allowed": [
@@ -3237,7 +3840,8 @@
             },
             "optimistic": {
               "default": false,
-              "required": false
+              "required": false,
+              "type": "bool"
             },
             "origin": {
               "default": null,
@@ -3245,75 +3849,93 @@
             },
             "payload_available": {
               "default": "online",
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "payload_not_available": {
               "default": "offline",
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "payload_off": {
               "default": "OFF",
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "payload_on": {
               "default": "ON",
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "qos": {
               "default": 0,
-              "required": false
+              "required": false,
+              "type": "int"
             },
             "retain": {
               "default": false,
-              "required": false
+              "required": false,
+              "type": "bool"
             },
             "rgb_command_template": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "rgb_command_topic": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "rgb_state_topic": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "rgb_value_template": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "rgbw_command_template": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "rgbw_command_topic": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "rgbw_state_topic": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "rgbw_value_template": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "rgbww_command_template": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "rgbww_command_topic": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "rgbww_state_topic": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "rgbww_value_template": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "schema": {
               "default": "basic",
@@ -3321,43 +3943,53 @@
             },
             "state_topic": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "state_value_template": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "unique_id": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "visible_by_default": {
               "default": true,
-              "required": false
+              "required": false,
+              "type": "bool"
             },
             "white_command_topic": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "white_scale": {
               "default": 255,
-              "required": false
+              "required": false,
+              "type": "int"
             },
             "xy_command_template": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "xy_command_topic": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "xy_state_topic": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "xy_value_template": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             }
           }
         },
@@ -3365,7 +3997,8 @@
           "keys": {
             "availability": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "list"
             },
             "availability_mode": {
               "allowed": [
@@ -3374,35 +4007,43 @@
                 "latest"
               ],
               "default": "latest",
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "availability_template": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "availability_topic": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "brightness": {
               "default": false,
-              "required": false
+              "required": false,
+              "type": "bool"
             },
             "brightness_scale": {
               "default": 255,
-              "required": false
+              "required": false,
+              "type": "int"
             },
             "color_temp_kelvin": {
               "default": false,
-              "required": false
+              "required": false,
+              "type": "bool"
             },
             "command_topic": {
               "default": null,
-              "required": true
+              "required": true,
+              "type": "str"
             },
             "default_entity_id": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "device": {
               "default": null,
@@ -3410,19 +4051,23 @@
             },
             "effect": {
               "default": false,
-              "required": false
+              "required": false,
+              "type": "bool"
             },
             "effect_list": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "list"
             },
             "enabled_by_default": {
               "default": true,
-              "required": false
+              "required": false,
+              "type": "bool"
             },
             "encoding": {
               "default": "utf-8",
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "entity_category": {
               "default": null,
@@ -3430,63 +4075,78 @@
             },
             "entity_picture": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "flash": {
               "default": true,
-              "required": false
+              "required": false,
+              "type": "bool"
             },
             "flash_time_long": {
               "default": 10,
-              "required": false
+              "required": false,
+              "type": "int"
             },
             "flash_time_short": {
               "default": 2,
-              "required": false
+              "required": false,
+              "type": "int"
             },
             "group": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "list"
             },
             "icon": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "json_attributes_template": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "json_attributes_topic": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "max_kelvin": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "int"
             },
             "max_mireds": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "int"
             },
             "message_expiry_interval": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "int"
             },
             "min_kelvin": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "int"
             },
             "min_mireds": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "int"
             },
             "name": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "optimistic": {
               "default": false,
-              "required": false
+              "required": false,
+              "type": "bool"
             },
             "origin": {
               "default": null,
@@ -3494,11 +4154,13 @@
             },
             "payload_available": {
               "default": "online",
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "payload_not_available": {
               "default": "offline",
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "qos": {
               "allowed": [
@@ -3507,11 +4169,13 @@
                 "2"
               ],
               "default": 0,
-              "required": false
+              "required": false,
+              "type": "int"
             },
             "retain": {
               "default": false,
-              "required": false
+              "required": false,
+              "type": "bool"
             },
             "schema": {
               "default": "basic",
@@ -3519,27 +4183,33 @@
             },
             "state_topic": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "supported_color_modes": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "list"
             },
             "transition": {
               "default": true,
-              "required": false
+              "required": false,
+              "type": "bool"
             },
             "unique_id": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "visible_by_default": {
               "default": true,
-              "required": false
+              "required": false,
+              "type": "bool"
             },
             "white_scale": {
               "default": 255,
-              "required": false
+              "required": false,
+              "type": "int"
             }
           }
         },
@@ -3547,7 +4217,8 @@
           "keys": {
             "availability": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "list"
             },
             "availability_mode": {
               "allowed": [
@@ -3556,47 +4227,58 @@
                 "latest"
               ],
               "default": "latest",
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "availability_template": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "availability_topic": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "blue_template": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "brightness_template": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "color_temp_kelvin": {
               "default": false,
-              "required": false
+              "required": false,
+              "type": "bool"
             },
             "color_temp_template": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "command_off_template": {
               "default": null,
-              "required": true
+              "required": true,
+              "type": "str"
             },
             "command_on_template": {
               "default": null,
-              "required": true
+              "required": true,
+              "type": "str"
             },
             "command_topic": {
               "default": null,
-              "required": true
+              "required": true,
+              "type": "str"
             },
             "default_entity_id": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "device": {
               "default": null,
@@ -3604,19 +4286,23 @@
             },
             "effect_list": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "list"
             },
             "effect_template": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "enabled_by_default": {
               "default": true,
-              "required": false
+              "required": false,
+              "type": "bool"
             },
             "encoding": {
               "default": "utf-8",
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "entity_category": {
               "default": null,
@@ -3624,55 +4310,68 @@
             },
             "entity_picture": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "green_template": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "group": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "list"
             },
             "icon": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "json_attributes_template": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "json_attributes_topic": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "max_kelvin": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "int"
             },
             "max_mireds": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "int"
             },
             "message_expiry_interval": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "int"
             },
             "min_kelvin": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "int"
             },
             "min_mireds": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "int"
             },
             "name": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "optimistic": {
               "default": false,
-              "required": false
+              "required": false,
+              "type": "bool"
             },
             "origin": {
               "default": null,
@@ -3680,23 +4379,28 @@
             },
             "payload_available": {
               "default": "online",
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "payload_not_available": {
               "default": "offline",
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "qos": {
               "default": 0,
-              "required": false
+              "required": false,
+              "type": "int"
             },
             "red_template": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "retain": {
               "default": false,
-              "required": false
+              "required": false,
+              "type": "bool"
             },
             "schema": {
               "default": "basic",
@@ -3704,19 +4408,23 @@
             },
             "state_template": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "state_topic": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "unique_id": {
               "default": null,
-              "required": false
+              "required": false,
+              "type": "str"
             },
             "visible_by_default": {
               "default": true,
-              "required": false
+              "required": false,
+              "type": "bool"
             }
           }
         }
@@ -3726,7 +4434,8 @@
       "keys": {
         "availability": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "availability_mode": {
           "allowed": [
@@ -3735,15 +4444,18 @@
             "latest"
           ],
           "default": "latest",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "availability_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "availability_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "code_format": {
           "default": null,
@@ -3751,15 +4463,18 @@
         },
         "command_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "command_topic": {
           "default": null,
-          "required": true
+          "required": true,
+          "type": "str"
         },
         "default_entity_id": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "device": {
           "default": null,
@@ -3767,11 +4482,13 @@
         },
         "enabled_by_default": {
           "default": true,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "encoding": {
           "default": "utf-8",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "entity_category": {
           "default": null,
@@ -3779,35 +4496,43 @@
         },
         "entity_picture": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "group": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "icon": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "json_attributes_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "json_attributes_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "message_expiry_interval": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "name": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "optimistic": {
           "default": false,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "origin": {
           "default": null,
@@ -3815,79 +4540,98 @@
         },
         "payload_available": {
           "default": "online",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_lock": {
           "default": "LOCK",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_not_available": {
           "default": "offline",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_open": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_reset": {
           "default": "None",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_unlock": {
           "default": "UNLOCK",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "qos": {
           "default": 0,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "retain": {
           "default": false,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "state_jammed": {
           "default": "JAMMED",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "state_locked": {
           "default": "LOCKED",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "state_locking": {
           "default": "LOCKING",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "state_open": {
           "default": "OPEN",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "state_opening": {
           "default": "OPENING",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "state_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "state_unlocked": {
           "default": "UNLOCKED",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "state_unlocking": {
           "default": "UNLOCKING",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "unique_id": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "value_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "visible_by_default": {
           "default": true,
-          "required": false
+          "required": false,
+          "type": "bool"
         }
       }
     },
@@ -3895,7 +4639,8 @@
       "keys": {
         "availability": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "availability_mode": {
           "allowed": [
@@ -3904,27 +4649,33 @@
             "latest"
           ],
           "default": "latest",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "availability_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "availability_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "command_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "command_topic": {
           "default": null,
-          "required": true
+          "required": true,
+          "type": "str"
         },
         "default_entity_id": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "device": {
           "default": null,
@@ -3932,11 +4683,13 @@
         },
         "enabled_by_default": {
           "default": true,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "encoding": {
           "default": "utf-8",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "entity_category": {
           "default": null,
@@ -3944,31 +4697,38 @@
         },
         "entity_picture": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "group": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "icon": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "json_attributes_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "json_attributes_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "message_expiry_interval": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "name": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "origin": {
           "default": null,
@@ -3976,27 +4736,33 @@
         },
         "payload_available": {
           "default": "online",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_not_available": {
           "default": "offline",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "qos": {
           "default": 0,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "retain": {
           "default": false,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "unique_id": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "visible_by_default": {
           "default": true,
-          "required": false
+          "required": false,
+          "type": "bool"
         }
       }
     },
@@ -4004,7 +4770,8 @@
       "keys": {
         "availability": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "availability_mode": {
           "allowed": [
@@ -4013,27 +4780,33 @@
             "latest"
           ],
           "default": "latest",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "availability_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "availability_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "command_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "command_topic": {
           "default": null,
-          "required": true
+          "required": true,
+          "type": "str"
         },
         "default_entity_id": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "device": {
           "default": null,
@@ -4045,11 +4818,13 @@
         },
         "enabled_by_default": {
           "default": true,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "encoding": {
           "default": "utf-8",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "entity_category": {
           "default": null,
@@ -4057,35 +4832,43 @@
         },
         "entity_picture": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "group": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "icon": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "json_attributes_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "json_attributes_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "max": {
           "default": 100.0,
-          "required": false
+          "required": false,
+          "type": "float"
         },
         "message_expiry_interval": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "min": {
           "default": 0.0,
-          "required": false
+          "required": false,
+          "type": "float"
         },
         "mode": {
           "default": "auto",
@@ -4093,11 +4876,13 @@
         },
         "name": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "optimistic": {
           "default": false,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "origin": {
           "default": null,
@@ -4105,47 +4890,58 @@
         },
         "payload_available": {
           "default": "online",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_not_available": {
           "default": "offline",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_reset": {
           "default": "None",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "qos": {
           "default": 0,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "retain": {
           "default": false,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "state_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "step": {
           "default": 1.0,
-          "required": false
+          "required": false,
+          "type": "float"
         },
         "unique_id": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "unit_of_measurement": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "value_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "visible_by_default": {
           "default": true,
-          "required": false
+          "required": false,
+          "type": "bool"
         }
       }
     },
@@ -4153,7 +4949,8 @@
       "keys": {
         "availability": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "availability_mode": {
           "allowed": [
@@ -4162,23 +4959,28 @@
             "latest"
           ],
           "default": "latest",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "availability_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "availability_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "command_topic": {
           "default": null,
-          "required": true
+          "required": true,
+          "type": "str"
         },
         "default_entity_id": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "device": {
           "default": null,
@@ -4186,11 +4988,13 @@
         },
         "enabled_by_default": {
           "default": true,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "encoding": {
           "default": "utf-8",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "entity_category": {
           "default": null,
@@ -4198,31 +5002,38 @@
         },
         "entity_picture": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "group": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "icon": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "json_attributes_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "json_attributes_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "message_expiry_interval": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "name": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "origin": {
           "default": null,
@@ -4230,31 +5041,38 @@
         },
         "payload_available": {
           "default": "online",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_not_available": {
           "default": "offline",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_on": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "qos": {
           "default": 0,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "retain": {
           "default": false,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "unique_id": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "visible_by_default": {
           "default": true,
-          "required": false
+          "required": false,
+          "type": "bool"
         }
       }
     },
@@ -4262,7 +5080,8 @@
       "keys": {
         "availability": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "availability_mode": {
           "allowed": [
@@ -4271,27 +5090,33 @@
             "latest"
           ],
           "default": "latest",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "availability_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "availability_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "command_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "command_topic": {
           "default": null,
-          "required": true
+          "required": true,
+          "type": "str"
         },
         "default_entity_id": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "device": {
           "default": null,
@@ -4299,11 +5124,13 @@
         },
         "enabled_by_default": {
           "default": true,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "encoding": {
           "default": "utf-8",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "entity_category": {
           "default": null,
@@ -4311,39 +5138,48 @@
         },
         "entity_picture": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "group": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "icon": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "json_attributes_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "json_attributes_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "message_expiry_interval": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "name": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "optimistic": {
           "default": false,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "options": {
           "default": null,
-          "required": true
+          "required": true,
+          "type": "list"
         },
         "origin": {
           "default": null,
@@ -4351,35 +5187,43 @@
         },
         "payload_available": {
           "default": "online",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_not_available": {
           "default": "offline",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "qos": {
           "default": 0,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "retain": {
           "default": false,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "state_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "unique_id": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "value_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "visible_by_default": {
           "default": true,
-          "required": false
+          "required": false,
+          "type": "bool"
         }
       }
     },
@@ -4387,7 +5231,8 @@
       "keys": {
         "availability": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "availability_mode": {
           "allowed": [
@@ -4396,19 +5241,23 @@
             "latest"
           ],
           "default": "latest",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "availability_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "availability_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "default_entity_id": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "device": {
           "default": null,
@@ -4420,11 +5269,13 @@
         },
         "enabled_by_default": {
           "default": true,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "encoding": {
           "default": "utf-8",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "entity_category": {
           "default": null,
@@ -4432,47 +5283,58 @@
         },
         "entity_picture": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "expire_after": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "force_update": {
           "default": false,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "group": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "icon": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "json_attributes_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "json_attributes_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "last_reset_value_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "message_expiry_interval": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "name": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "options": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "origin": {
           "default": null,
@@ -4480,15 +5342,18 @@
         },
         "payload_available": {
           "default": "online",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_not_available": {
           "default": "offline",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "qos": {
           "default": 0,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "state_class": {
           "default": null,
@@ -4496,27 +5361,33 @@
         },
         "state_topic": {
           "default": null,
-          "required": true
+          "required": true,
+          "type": "str"
         },
         "suggested_display_precision": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "unique_id": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "unit_of_measurement": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "value_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "visible_by_default": {
           "default": true,
-          "required": false
+          "required": false,
+          "type": "bool"
         }
       }
     },
@@ -4524,7 +5395,8 @@
       "keys": {
         "availability": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "availability_mode": {
           "allowed": [
@@ -4533,35 +5405,43 @@
             "latest"
           ],
           "default": "latest",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "availability_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "availability_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "available_tones": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "command_off_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "command_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "command_topic": {
           "default": null,
-          "required": true
+          "required": true,
+          "type": "str"
         },
         "default_entity_id": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "device": {
           "default": null,
@@ -4569,11 +5449,13 @@
         },
         "enabled_by_default": {
           "default": true,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "encoding": {
           "default": "utf-8",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "entity_category": {
           "default": null,
@@ -4581,35 +5463,43 @@
         },
         "entity_picture": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "group": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "icon": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "json_attributes_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "json_attributes_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "message_expiry_interval": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "name": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "optimistic": {
           "default": false,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "origin": {
           "default": null,
@@ -4617,59 +5507,73 @@
         },
         "payload_available": {
           "default": "online",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_not_available": {
           "default": "offline",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_off": {
           "default": "OFF",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_on": {
           "default": "ON",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "qos": {
           "default": 0,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "retain": {
           "default": false,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "state_off": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "state_on": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "state_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "state_value_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "support_duration": {
           "default": true,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "support_volume_set": {
           "default": true,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "unique_id": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "visible_by_default": {
           "default": true,
-          "required": false
+          "required": false,
+          "type": "bool"
         }
       }
     },
@@ -4677,7 +5581,8 @@
       "keys": {
         "availability": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "availability_mode": {
           "allowed": [
@@ -4686,27 +5591,33 @@
             "latest"
           ],
           "default": "latest",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "availability_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "availability_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "command_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "command_topic": {
           "default": null,
-          "required": true
+          "required": true,
+          "type": "str"
         },
         "default_entity_id": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "device": {
           "default": null,
@@ -4718,11 +5629,13 @@
         },
         "enabled_by_default": {
           "default": true,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "encoding": {
           "default": "utf-8",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "entity_category": {
           "default": null,
@@ -4730,35 +5643,43 @@
         },
         "entity_picture": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "group": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "icon": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "json_attributes_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "json_attributes_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "message_expiry_interval": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "name": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "optimistic": {
           "default": false,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "origin": {
           "default": null,
@@ -4766,51 +5687,63 @@
         },
         "payload_available": {
           "default": "online",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_not_available": {
           "default": "offline",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_off": {
           "default": "OFF",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_on": {
           "default": "ON",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "qos": {
           "default": 0,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "retain": {
           "default": false,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "state_off": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "state_on": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "state_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "unique_id": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "value_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "visible_by_default": {
           "default": true,
-          "required": false
+          "required": false,
+          "type": "bool"
         }
       }
     },
@@ -4822,23 +5755,28 @@
         },
         "encoding": {
           "default": "utf-8",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "group": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "qos": {
           "default": 0,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "topic": {
           "default": null,
-          "required": true
+          "required": true,
+          "type": "str"
         },
         "value_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         }
       }
     },
@@ -4846,7 +5784,8 @@
       "keys": {
         "availability": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "availability_mode": {
           "allowed": [
@@ -4855,27 +5794,33 @@
             "latest"
           ],
           "default": "latest",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "availability_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "availability_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "command_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "command_topic": {
           "default": null,
-          "required": true
+          "required": true,
+          "type": "str"
         },
         "default_entity_id": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "device": {
           "default": null,
@@ -4883,11 +5828,13 @@
         },
         "enabled_by_default": {
           "default": true,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "encoding": {
           "default": "utf-8",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "entity_category": {
           "default": null,
@@ -4895,35 +5842,43 @@
         },
         "entity_picture": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "group": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "icon": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "json_attributes_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "json_attributes_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "max": {
           "default": 255,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "message_expiry_interval": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "min": {
           "default": 0,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "mode": {
           "allowed": [
@@ -4935,11 +5890,13 @@
         },
         "name": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "optimistic": {
           "default": false,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "origin": {
           "default": null,
@@ -4951,35 +5908,43 @@
         },
         "payload_available": {
           "default": "online",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_not_available": {
           "default": "offline",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "qos": {
           "default": 0,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "retain": {
           "default": false,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "state_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "unique_id": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "value_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "visible_by_default": {
           "default": true,
-          "required": false
+          "required": false,
+          "type": "bool"
         }
       }
     },
@@ -4987,7 +5952,8 @@
       "keys": {
         "availability": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "availability_mode": {
           "allowed": [
@@ -4996,27 +5962,33 @@
             "latest"
           ],
           "default": "latest",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "availability_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "availability_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "command_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "command_topic": {
           "default": null,
-          "required": true
+          "required": true,
+          "type": "str"
         },
         "default_entity_id": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "device": {
           "default": null,
@@ -5024,11 +5996,13 @@
         },
         "enabled_by_default": {
           "default": true,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "encoding": {
           "default": "utf-8",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "entity_category": {
           "default": null,
@@ -5036,35 +6010,43 @@
         },
         "entity_picture": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "group": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "icon": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "json_attributes_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "json_attributes_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "message_expiry_interval": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "name": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "optimistic": {
           "default": false,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "origin": {
           "default": null,
@@ -5072,35 +6054,43 @@
         },
         "payload_available": {
           "default": "online",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_not_available": {
           "default": "offline",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "qos": {
           "default": 0,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "retain": {
           "default": false,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "state_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "unique_id": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "value_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "visible_by_default": {
           "default": true,
-          "required": false
+          "required": false,
+          "type": "bool"
         }
       }
     },
@@ -5108,7 +6098,8 @@
       "keys": {
         "availability": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "availability_mode": {
           "allowed": [
@@ -5117,23 +6108,28 @@
             "latest"
           ],
           "default": "latest",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "availability_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "availability_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "command_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "default_entity_id": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "device": {
           "default": null,
@@ -5145,15 +6141,18 @@
         },
         "display_precision": {
           "default": 0,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "enabled_by_default": {
           "default": true,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "encoding": {
           "default": "utf-8",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "entity_category": {
           "default": null,
@@ -5161,39 +6160,48 @@
         },
         "entity_picture": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "group": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "icon": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "json_attributes_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "json_attributes_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "latest_version_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "latest_version_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "message_expiry_interval": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "name": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "origin": {
           "default": null,
@@ -5201,51 +6209,63 @@
         },
         "payload_available": {
           "default": "online",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_install": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_not_available": {
           "default": "offline",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "qos": {
           "default": 0,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "release_summary": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "release_url": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "retain": {
           "default": false,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "state_topic": {
           "default": null,
-          "required": true
+          "required": true,
+          "type": "str"
         },
         "title": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "unique_id": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "value_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "visible_by_default": {
           "default": true,
-          "required": false
+          "required": false,
+          "type": "bool"
         }
       }
     },
@@ -5253,7 +6273,8 @@
       "keys": {
         "availability": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "availability_mode": {
           "allowed": [
@@ -5262,31 +6283,38 @@
             "latest"
           ],
           "default": "latest",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "availability_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "availability_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "clean_segments_command_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "clean_segments_command_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "command_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "default_entity_id": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "device": {
           "default": null,
@@ -5294,11 +6322,13 @@
         },
         "enabled_by_default": {
           "default": true,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "encoding": {
           "default": "utf-8",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "entity_category": {
           "default": null,
@@ -5306,35 +6336,43 @@
         },
         "entity_picture": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "fan_speed_list": {
           "default": [],
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "group": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "icon": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "json_attributes_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "json_attributes_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "message_expiry_interval": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "name": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "origin": {
           "default": null,
@@ -5342,55 +6380,68 @@
         },
         "payload_available": {
           "default": "online",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_clean_spot": {
           "default": "clean_spot",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_locate": {
           "default": "locate",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_not_available": {
           "default": "offline",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_pause": {
           "default": "pause",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_return_to_base": {
           "default": "return_to_base",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_start": {
           "default": "start",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_stop": {
           "default": "stop",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "qos": {
           "default": 0,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "retain": {
           "default": false,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "send_command_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "set_fan_speed_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "state_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "supported_features": {
           "default": [
@@ -5399,15 +6450,18 @@
             "start",
             "stop"
           ],
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "unique_id": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "visible_by_default": {
           "default": true,
-          "required": false
+          "required": false,
+          "type": "bool"
         }
       }
     },
@@ -5415,7 +6469,8 @@
       "keys": {
         "availability": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "availability_mode": {
           "allowed": [
@@ -5424,27 +6479,33 @@
             "latest"
           ],
           "default": "latest",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "availability_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "availability_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "command_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "command_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "default_entity_id": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "device": {
           "default": null,
@@ -5456,11 +6517,13 @@
         },
         "enabled_by_default": {
           "default": true,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "encoding": {
           "default": "utf-8",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "entity_category": {
           "default": null,
@@ -5468,35 +6531,43 @@
         },
         "entity_picture": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "group": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "icon": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "json_attributes_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "json_attributes_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "message_expiry_interval": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "name": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "optimistic": {
           "default": false,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "origin": {
           "default": null,
@@ -5504,75 +6575,93 @@
         },
         "payload_available": {
           "default": "online",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_close": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_not_available": {
           "default": "offline",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_open": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_stop": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "position_closed": {
           "default": 0,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "position_open": {
           "default": 100,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "qos": {
           "default": 0,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "reports_position": {
           "default": false,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "retain": {
           "default": false,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "state_closed": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "state_closing": {
           "default": "closing",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "state_open": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "state_opening": {
           "default": "opening",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "state_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "unique_id": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "value_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "visible_by_default": {
           "default": true,
-          "required": false
+          "required": false,
+          "type": "bool"
         }
       }
     },
@@ -5580,7 +6669,8 @@
       "keys": {
         "availability": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "availability_mode": {
           "allowed": [
@@ -5589,27 +6679,33 @@
             "latest"
           ],
           "default": "latest",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "availability_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "availability_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "current_temperature_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "current_temperature_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "default_entity_id": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "device": {
           "default": null,
@@ -5617,11 +6713,13 @@
         },
         "enabled_by_default": {
           "default": true,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "encoding": {
           "default": "utf-8",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "entity_category": {
           "default": null,
@@ -5629,55 +6727,68 @@
         },
         "entity_picture": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "group": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "icon": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "initial": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "float"
         },
         "json_attributes_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "json_attributes_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "max_temp": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "float"
         },
         "message_expiry_interval": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "min_temp": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "float"
         },
         "mode_command_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "mode_command_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "mode_state_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "mode_state_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "modes": {
           "default": [
@@ -5689,15 +6800,18 @@
             "off",
             "performance"
           ],
-          "required": false
+          "required": false,
+          "type": "list"
         },
         "name": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "optimistic": {
           "default": false,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "origin": {
           "default": null,
@@ -5705,27 +6819,33 @@
         },
         "payload_available": {
           "default": "online",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_not_available": {
           "default": "offline",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_off": {
           "default": "OFF",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "payload_on": {
           "default": "ON",
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "power_command_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "power_command_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "precision": {
           "allowed": [
@@ -5734,31 +6854,38 @@
             "1"
           ],
           "default": null,
-          "required": false
+          "required": false,
+          "type": "float"
         },
         "qos": {
           "default": 0,
-          "required": false
+          "required": false,
+          "type": "int"
         },
         "retain": {
           "default": false,
-          "required": false
+          "required": false,
+          "type": "bool"
         },
         "temperature_command_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "temperature_command_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "temperature_state_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "temperature_state_topic": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "temperature_unit": {
           "default": null,
@@ -5766,15 +6893,18 @@
         },
         "unique_id": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "value_template": {
           "default": null,
-          "required": false
+          "required": false,
+          "type": "str"
         },
         "visible_by_default": {
           "default": true,
-          "required": false
+          "required": false,
+          "type": "bool"
         }
       }
     }

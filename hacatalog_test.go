@@ -347,3 +347,55 @@ func TestIconsCoverTheCommonDomains(t *testing.T) {
 		}
 	}
 }
+
+// TestSchemaKeyTypesAreUsable pins the field a consumer generates typed structs
+// from. Two properties matter more than breadth: the type must be one of the
+// five names a generator can switch on, and it must be per-platform — `max` is
+// a float on `number` and an integer on `cover`, and a table that flattened
+// them would hand every consumer the wrong type on one of the two.
+func TestSchemaKeyTypesAreUsable(t *testing.T) {
+	mqtt, err := LoadMQTT()
+	if err != nil {
+		t.Fatalf("LoadMQTT: %v", err)
+	}
+	known := map[string]bool{"bool": true, "int": true, "float": true, "list": true, "str": true}
+
+	typed := 0
+	for platform, schema := range mqtt.Platforms {
+		all := []map[string]SchemaKey{schema.Keys}
+		for _, v := range schema.Variants {
+			all = append(all, v.Keys)
+		}
+		for _, keys := range all {
+			for name, entry := range keys {
+				if entry.Type == "" {
+					continue
+				}
+				typed++
+				if !known[entry.Type] {
+					t.Errorf("%s.%s: type %q is not one a generator can switch on",
+						platform, name, entry.Type)
+				}
+			}
+		}
+	}
+	if typed < 300 {
+		t.Errorf("only %d keys carry a type — the extraction lost the validators", typed)
+	}
+
+	for _, tc := range []struct{ platform, key, want string }{
+		{"number", "max", "float"},
+		{"cover", "position_open", "int"},
+		{"switch", "qos", "int"},
+		{"switch", "retain", "bool"},
+		{"switch", "group", "list"},
+		{"sensor", "options", "list"},
+		{"climate", "temp_step", "float"},
+		{"binary_sensor", "off_delay", "int"},
+	} {
+		got := mqtt.Platforms[tc.platform].Keys[tc.key].Type
+		if got != tc.want {
+			t.Errorf("%s.%s: type = %q, want %q", tc.platform, tc.key, got, tc.want)
+		}
+	}
+}
