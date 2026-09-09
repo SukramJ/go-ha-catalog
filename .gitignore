@@ -1,0 +1,5 @@
+.venv/
+core/
+coverage.out
+gen_vocab.go.broken
+.idea/

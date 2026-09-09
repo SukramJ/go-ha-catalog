@@ -1,0 +1,186 @@
+name: "Regenerate: on Home Assistant release"
+# Regenerates the catalog whenever Home Assistant ships a stable release, and
+# tags and releases it — unattended.
+#
+# Home Assistant cannot fire a repository_dispatch at us the way openccu-data
+# can, so the trigger is a poll of its releases API. Betas are skipped.
+#
+# Every stable release triggers a regeneration, patch releases included: Home
+# Assistant ships many of those and most never touch the vocabulary, so the
+# guard against tag noise is not the trigger but the diff — hadiff decides
+# whether anything is published at all.
+#
+# Bump mapping (see script/next-version.sh for why the module stays in v0.x):
+#   hadiff "major" (a Go constant disappeared) -> minor bump
+#   hadiff "minor" (additive)                  -> patch bump
+#   hadiff "none"                              -> stamp only, no tag
+# yamllint disable-line rule:truthy
+on:
+  schedule:
+    - cron: "17 5 * * *" # daily 05:17 UTC
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "home-assistant/core tag to regenerate from (default: latest stable)"
+        required: false
+      force:
+        description: "release even when the catalog is unchanged"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: regenerate
+  cancel-in-progress: false
+
+jobs:
+  regenerate:
+    if: github.repository_owner == 'SukramJ'
+    runs-on: ubuntu-latest
+    steps:
+      # Checked out with the PAT: a tag pushed with GITHUB_TOKEN does not
+      # trigger release-on-tag.yml, so the release would never be created.
+      - name: Checkout go-ha-catalog
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          token: ${{ secrets.RELEASE_PAT }}
+          fetch-depth: 0 # next-version.sh reads the tag list
+
+      - name: Resolve the Home Assistant release to track
+        id: resolve
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          INPUT_TAG: ${{ github.event.inputs.tag }}
+        run: |
+          set -euo pipefail
+          if [ -n "${INPUT_TAG}" ]; then
+            TAG="${INPUT_TAG}"
+          else
+            # /releases/latest excludes prereleases by definition, which is
+            # exactly the "stable only" rule.
+            TAG="$(gh api repos/home-assistant/core/releases/latest --jq .tag_name)"
+          fi
+          [ -n "$TAG" ] || { echo "could not resolve a Home Assistant tag" >&2; exit 1; }
+
+          CURRENT="$(sed -n 's/^const SnapshotVersion = "\(.*\)"$/\1/p' hacatalog.go)"
+          echo "upstream=$TAG"    >> "$GITHUB_OUTPUT"
+          echo "current=$CURRENT" >> "$GITHUB_OUTPUT"
+          echo "Home Assistant latest stable: $TAG (catalog holds $CURRENT)"
+
+          if [ "$TAG" = "$CURRENT" ] && [ "${{ github.event.inputs.force }}" != "true" ]; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            echo "catalog is already at $TAG — nothing to do"
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Checkout home-assistant/core at that tag
+        if: steps.resolve.outputs.skip != 'true'
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: home-assistant/core
+          ref: ${{ steps.resolve.outputs.upstream }}
+          path: ha-core
+          fetch-depth: 0 # the extractor stamps `git describe --tags`
+
+      - name: Set up Go
+        if: steps.resolve.outputs.skip != 'true'
+        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: go.mod
+          cache: true
+
+      - name: Set up Python
+        if: steps.resolve.outputs.skip != 'true'
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          # Home Assistant pins a minimum in its pyproject; read it rather than
+          # hard-coding a version that will age out.
+          python-version-file: ha-core/.python-version
+
+      - name: Keep the previous catalog for comparison
+        if: steps.resolve.outputs.skip != 'true'
+        run: cp -r data /tmp/old-data
+
+      - name: Regenerate
+        if: steps.resolve.outputs.skip != 'true'
+        run: script/regenerate.sh ha-core
+
+      - name: Classify the change
+        if: steps.resolve.outputs.skip != 'true'
+        id: diff
+        run: |
+          set -euo pipefail
+          go build -o /tmp/hadiff ./script/hadiff
+          # hadiff exits non-zero to signal a verdict, so it must not abort the
+          # step; the JSON is the contract, the exit code only a convenience.
+          set +e
+          /tmp/hadiff -old /tmp/old-data -new data -format json > /tmp/hadiff.json
+          set -e
+          cat /tmp/hadiff.json
+          BUMP="$(jq -r .bump /tmp/hadiff.json)"
+          echo "bump=$BUMP" >> "$GITHUB_OUTPUT"
+          /tmp/hadiff -old /tmp/old-data -new data > /tmp/hadiff.txt || true
+
+      - name: Verify the regenerated catalog
+        if: steps.resolve.outputs.skip != 'true'
+        env:
+          CGO_ENABLED: "1"
+        run: go test -race -count=1 -timeout=120s ./...
+
+      # The vocabulary did not move. Commit the snapshot stamp anyway — without
+      # it the next scheduled run would re-extract the same release forever —
+      # but publish no tag, which is what keeps Home Assistant's many
+      # vocabulary-neutral patch releases from generating tag noise.
+      - name: Commit the stamp only (catalog unchanged)
+        if: steps.resolve.outputs.skip != 'true' && steps.diff.outputs.bump == 'none' && github.event.inputs.force != 'true'
+        run: |
+          set -euo pipefail
+          rm -rf ha-core .venv
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "nothing changed at all"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "chore(catalog): track Home Assistant ${{ steps.resolve.outputs.upstream }} (no vocabulary change)"
+          git push origin HEAD:main
+
+      - name: Release
+        if: steps.resolve.outputs.skip != 'true' && (steps.diff.outputs.bump != 'none' || github.event.inputs.force == 'true')
+        env:
+          UPSTREAM: ${{ steps.resolve.outputs.upstream }}
+          BUMP: ${{ steps.diff.outputs.bump }}
+        run: |
+          set -euo pipefail
+          rm -rf ha-core .venv
+
+          # `[ x ] && y` would abort the step under `set -e` whenever the test
+          # is false, which is the common case here.
+          if [ -z "$BUMP" ] || [ "$BUMP" = "none" ]; then
+            BUMP="minor"   # reachable only via the `force` input
+          fi
+          VERSION="$(script/next-version.sh "$BUMP")"
+
+          if [ "$BUMP" = "major" ]; then
+            SUBJECT="feat(catalog)!: Home Assistant ${UPSTREAM} (vocabulary removals)"
+          else
+            SUBJECT="feat(catalog): Home Assistant ${UPSTREAM}"
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "$SUBJECT"
+          git push origin HEAD:main
+
+          # The hadiff report rides in the tag annotation rather than in a
+          # committed file: release-on-tag.yml reads it back from there, so
+          # nothing stale is left in the tree for the next release to inherit.
+          { echo "$SUBJECT"; echo; cat /tmp/hadiff.txt; } > /tmp/tag-message.txt
+          git tag -a "$VERSION" -F /tmp/tag-message.txt
+          git push origin "$VERSION"
+          echo "released $VERSION ($BUMP) from Home Assistant $UPSTREAM"

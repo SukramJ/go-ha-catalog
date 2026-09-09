@@ -1,0 +1,493 @@
+{
+  "converters": {
+    "apparent_power": [
+      "VA",
+      "kVA",
+      "mVA"
+    ],
+    "area": [
+      "ac",
+      "cm²",
+      "ft²",
+      "ha",
+      "in²",
+      "km²",
+      "mi²",
+      "mm²",
+      "m²",
+      "yd²"
+    ],
+    "blood_glucose_concentration": [
+      "mg/dL",
+      "mmol/L"
+    ],
+    "carbon_monoxide": [
+      "mg/m³",
+      "ppb",
+      "ppm",
+      "μg/m³"
+    ],
+    "concentration": [
+      "g/m³",
+      "mg/m³",
+      "μg/m³"
+    ],
+    "conductivity": [
+      "S/cm",
+      "mS/cm",
+      "μS/cm"
+    ],
+    "data_rate": [
+      "B/s",
+      "GB/s",
+      "Gbit/s",
+      "GiB/s",
+      "KiB/s",
+      "MB/s",
+      "Mbit/s",
+      "MiB/s",
+      "bit/s",
+      "kB/s",
+      "kbit/s"
+    ],
+    "distance": [
+      "cm",
+      "ft",
+      "in",
+      "km",
+      "m",
+      "mi",
+      "mm",
+      "nmi",
+      "yd"
+    ],
+    "duration": [
+      "d",
+      "h",
+      "min",
+      "ms",
+      "s",
+      "w",
+      "μs"
+    ],
+    "electric_current": [
+      "A",
+      "mA",
+      "μA"
+    ],
+    "energy": [
+      "GJ",
+      "GWh",
+      "Gcal",
+      "J",
+      "MJ",
+      "MWh",
+      "Mcal",
+      "TWh",
+      "Wh",
+      "cal",
+      "kJ",
+      "kWh",
+      "kcal",
+      "mWh"
+    ],
+    "energy_distance": [
+      "Wh/km",
+      "kWh/100km",
+      "km/kWh",
+      "mi/kWh"
+    ],
+    "frequency": [
+      "GHz",
+      "Hz",
+      "MHz",
+      "kHz",
+      "mHz"
+    ],
+    "information": [
+      "B",
+      "EB",
+      "EiB",
+      "GB",
+      "Gbit",
+      "GiB",
+      "KiB",
+      "MB",
+      "Mbit",
+      "MiB",
+      "PB",
+      "PiB",
+      "TB",
+      "TiB",
+      "YB",
+      "YiB",
+      "ZB",
+      "ZiB",
+      "bit",
+      "kB",
+      "kbit"
+    ],
+    "mass": [
+      "g",
+      "kg",
+      "lb",
+      "mg",
+      "oz",
+      "st",
+      "μg"
+    ],
+    "nitrogen_dioxide": [
+      "ppb",
+      "ppm",
+      "μg/m³"
+    ],
+    "nitrogen_monoxide": [
+      "ppb",
+      "μg/m³"
+    ],
+    "ozone": [
+      "ppb",
+      "ppm",
+      "μg/m³"
+    ],
+    "power": [
+      "BTU/h",
+      "GW",
+      "MW",
+      "TW",
+      "W",
+      "kW",
+      "mW"
+    ],
+    "pressure": [
+      "Pa",
+      "bar",
+      "cbar",
+      "hPa",
+      "inHg",
+      "inH₂O",
+      "kPa",
+      "mPa",
+      "mbar",
+      "mmHg",
+      "psi"
+    ],
+    "radiation_concentration": [
+      "Bq/m³",
+      "pCi/L"
+    ],
+    "reactive_energy": [
+      "kvarh",
+      "varh"
+    ],
+    "reactive_power": [
+      "kvar",
+      "mvar",
+      "var"
+    ],
+    "speed": [
+      "Beaufort",
+      "ft/s",
+      "in/d",
+      "in/h",
+      "in/s",
+      "km/h",
+      "kn",
+      "m/min",
+      "m/s",
+      "mm/d",
+      "mm/h",
+      "mm/s",
+      "mph"
+    ],
+    "sulphur_dioxide": [
+      "ppb",
+      "μg/m³"
+    ],
+    "temperature": [
+      "K",
+      "°C",
+      "°F"
+    ],
+    "temperature_delta": [
+      "K",
+      "°C",
+      "°F"
+    ],
+    "unitless": [
+      "%",
+      "ppb",
+      "ppm"
+    ],
+    "voltage": [
+      "MV",
+      "V",
+      "kV",
+      "mV",
+      "μV"
+    ],
+    "volume": [
+      "CCF",
+      "L",
+      "MCF",
+      "fl. oz.",
+      "ft³",
+      "gal",
+      "mL",
+      "m³"
+    ],
+    "volume_flow_rate": [
+      "L/h",
+      "L/min",
+      "L/s",
+      "ft³/min",
+      "gal/d",
+      "gal/h",
+      "gal/min",
+      "mL/s",
+      "m³/h",
+      "m³/min",
+      "m³/s"
+    ]
+  },
+  "enums": {
+    "UnitOfApparentPower": [
+      "mVA",
+      "VA",
+      "kVA"
+    ],
+    "UnitOfArea": [
+      "m²",
+      "cm²",
+      "km²",
+      "mm²",
+      "in²",
+      "ft²",
+      "yd²",
+      "mi²",
+      "ac",
+      "ha"
+    ],
+    "UnitOfBloodGlucoseConcentration": [
+      "mg/dL",
+      "mmol/L"
+    ],
+    "UnitOfConductivity": [
+      "S/cm",
+      "μS/cm",
+      "mS/cm"
+    ],
+    "UnitOfDataRate": [
+      "bit/s",
+      "kbit/s",
+      "Mbit/s",
+      "Gbit/s",
+      "B/s",
+      "kB/s",
+      "MB/s",
+      "GB/s",
+      "KiB/s",
+      "MiB/s",
+      "GiB/s"
+    ],
+    "UnitOfDensity": [
+      "g/m³",
+      "mg/m³",
+      "μg/m³",
+      "μg/ft³"
+    ],
+    "UnitOfElectricCurrent": [
+      "μA",
+      "mA",
+      "A"
+    ],
+    "UnitOfElectricPotential": [
+      "μV",
+      "mV",
+      "V",
+      "kV",
+      "MV"
+    ],
+    "UnitOfEnergy": [
+      "J",
+      "kJ",
+      "MJ",
+      "GJ",
+      "mWh",
+      "Wh",
+      "kWh",
+      "MWh",
+      "GWh",
+      "TWh",
+      "cal",
+      "kcal",
+      "Mcal",
+      "Gcal"
+    ],
+    "UnitOfEnergyDistance": [
+      "kWh/100km",
+      "Wh/km",
+      "mi/kWh",
+      "km/kWh"
+    ],
+    "UnitOfFrequency": [
+      "mHz",
+      "Hz",
+      "kHz",
+      "MHz",
+      "GHz"
+    ],
+    "UnitOfInformation": [
+      "bit",
+      "kbit",
+      "Mbit",
+      "Gbit",
+      "B",
+      "kB",
+      "MB",
+      "GB",
+      "TB",
+      "PB",
+      "EB",
+      "ZB",
+      "YB",
+      "KiB",
+      "MiB",
+      "GiB",
+      "TiB",
+      "PiB",
+      "EiB",
+      "ZiB",
+      "YiB"
+    ],
+    "UnitOfIrradiance": [
+      "W/m²",
+      "BTU/(h⋅ft²)"
+    ],
+    "UnitOfLength": [
+      "mm",
+      "cm",
+      "m",
+      "km",
+      "in",
+      "ft",
+      "yd",
+      "mi",
+      "nmi"
+    ],
+    "UnitOfMass": [
+      "g",
+      "kg",
+      "mg",
+      "μg",
+      "oz",
+      "lb",
+      "st"
+    ],
+    "UnitOfPower": [
+      "mW",
+      "W",
+      "kW",
+      "MW",
+      "GW",
+      "TW",
+      "BTU/h"
+    ],
+    "UnitOfPrecipitationDepth": [
+      "in",
+      "mm",
+      "cm"
+    ],
+    "UnitOfPressure": [
+      "mPa",
+      "Pa",
+      "hPa",
+      "kPa",
+      "bar",
+      "cbar",
+      "mbar",
+      "mmHg",
+      "inHg",
+      "inH₂O",
+      "psi"
+    ],
+    "UnitOfRadiationConcentration": [
+      "Bq/m³",
+      "pCi/L"
+    ],
+    "UnitOfRatio": [
+      "ppm",
+      "ppb",
+      "%"
+    ],
+    "UnitOfReactiveEnergy": [
+      "varh",
+      "kvarh"
+    ],
+    "UnitOfReactivePower": [
+      "mvar",
+      "var",
+      "kvar"
+    ],
+    "UnitOfSoundPressure": [
+      "dB",
+      "dBA"
+    ],
+    "UnitOfSpeed": [
+      "Beaufort",
+      "ft/s",
+      "in/s",
+      "m/min",
+      "m/s",
+      "km/h",
+      "kn",
+      "mph",
+      "mm/s"
+    ],
+    "UnitOfTemperature": [
+      "°C",
+      "°F",
+      "K"
+    ],
+    "UnitOfTime": [
+      "μs",
+      "ms",
+      "s",
+      "min",
+      "h",
+      "d",
+      "w",
+      "m",
+      "y"
+    ],
+    "UnitOfVolume": [
+      "ft³",
+      "CCF",
+      "MCF",
+      "m³",
+      "L",
+      "mL",
+      "gal",
+      "fl. oz."
+    ],
+    "UnitOfVolumeFlowRate": [
+      "m³/h",
+      "m³/min",
+      "m³/s",
+      "ft³/min",
+      "L/h",
+      "L/min",
+      "L/s",
+      "gal/h",
+      "gal/min",
+      "gal/d",
+      "mL/s"
+    ],
+    "UnitOfVolumetricFlux": [
+      "in/d",
+      "in/h",
+      "mm/d",
+      "mm/h"
+    ]
+  }
+}

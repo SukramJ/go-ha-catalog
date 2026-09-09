@@ -1,0 +1,80 @@
+name: "Release: Create from Tag"
+# Creates the GitHub Release for a pushed module tag. The module is consumed
+# via the Go proxy, so there are no build artifacts — the release carries
+# generated notes plus the Home Assistant snapshot the catalog was cut from.
+#
+# The unattended regeneration workflow pushes its tags through this same path,
+# so a hand-pushed tag and an automatic one produce identical releases.
+# yamllint disable-line rule:truthy
+on:
+  push:
+    tags:
+      - '**'
+
+permissions:
+  contents: write
+
+# One concurrent release per tag — re-pushing the same tag overrides the
+# previous in-flight run instead of racing it.
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  create_release:
+    if: github.repository_owner == 'SukramJ'
+    name: Create GitHub Release (${{ github.ref_name }})
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          # The tag object itself carries the release notes, so it has to be
+          # fetched, not just the commit it points at.
+          fetch-depth: 0
+
+      - name: Set up Go
+        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: go.mod
+          cache: true
+
+      - name: Verify tagged catalog
+        run: go test ./...
+
+      - name: Read embedded snapshot
+        run: |
+          SNAPSHOT="$(sed -n 's/^const SnapshotVersion = "\(.*\)"$/\1/p' hacatalog.go)"
+          REF="$(sed -n 's/^const SnapshotRef = "\(.*\)"$/\1/p' hacatalog.go)"
+          [ -n "$SNAPSHOT" ] || { echo "SnapshotVersion not found" >&2; exit 1; }
+          echo "SNAPSHOT=${SNAPSHOT}" >> "$GITHUB_ENV"
+          echo "REF=${REF}" >> "$GITHUB_ENV"
+
+      # An annotated tag from the regeneration workflow carries the hadiff
+      # report in its message; a lightweight, hand-pushed tag has none and the
+      # body is just the snapshot line.
+      - name: Compose release body
+        run: |
+          {
+            echo "Home Assistant snapshot: \`${SNAPSHOT}\` (\`${REF}\`)."
+            NOTES="$(git tag -l --format='%(contents:body)' "${GITHUB_REF_NAME}")"
+            if [ -n "${NOTES//[[:space:]]/}" ]; then
+              echo
+              echo '```'
+              echo "$NOTES"
+              echo '```'
+            fi
+          } > RELEASE_BODY.md
+          cat RELEASE_BODY.md
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@efb35369e0ad2afab669f228072c1b0d510eae64 # v3
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: ${{ github.ref_name }}
+          body_path: RELEASE_BODY.md
+          generate_release_notes: true
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

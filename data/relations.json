@@ -1,0 +1,735 @@
+{
+  "ambiguous_units": {
+    "VAr": "var",
+    "VArh": "varh",
+    "kVAr": "kvar",
+    "kVArh": "kvarh",
+    "mVAr": "mvar",
+    "µS/cm": "μS/cm",
+    "µSv/h": "μSv/h",
+    "µV": "μV",
+    "µg": "μg",
+    "µg/ft³": "μg/ft³",
+    "µg/m³": "μg/m³",
+    "µmol/s⋅m²": "μmol/s⋅m²",
+    "µs": "μs"
+  },
+  "number_device_class_units": {
+    "absolute_humidity": [
+      "g/m³",
+      "mg/m³"
+    ],
+    "apparent_power": [
+      "VA",
+      "kVA",
+      "mVA"
+    ],
+    "aqi": [],
+    "area": [
+      "ac",
+      "cm²",
+      "ft²",
+      "ha",
+      "in²",
+      "km²",
+      "mi²",
+      "mm²",
+      "m²",
+      "yd²"
+    ],
+    "atmospheric_pressure": [
+      "Pa",
+      "bar",
+      "cbar",
+      "hPa",
+      "inHg",
+      "inH₂O",
+      "kPa",
+      "mPa",
+      "mbar",
+      "mmHg",
+      "psi"
+    ],
+    "battery": [
+      "%"
+    ],
+    "blood_glucose_concentration": [
+      "mg/dL",
+      "mmol/L"
+    ],
+    "carbon_dioxide": [
+      "ppm"
+    ],
+    "carbon_monoxide": [
+      "mg/m³",
+      "ppb",
+      "ppm",
+      "μg/m³"
+    ],
+    "conductivity": [
+      "S/cm",
+      "mS/cm",
+      "μS/cm"
+    ],
+    "current": [
+      "A",
+      "mA",
+      "μA"
+    ],
+    "data_rate": [
+      "B/s",
+      "GB/s",
+      "Gbit/s",
+      "GiB/s",
+      "KiB/s",
+      "MB/s",
+      "Mbit/s",
+      "MiB/s",
+      "bit/s",
+      "kB/s",
+      "kbit/s"
+    ],
+    "data_size": [
+      "B",
+      "EB",
+      "EiB",
+      "GB",
+      "Gbit",
+      "GiB",
+      "KiB",
+      "MB",
+      "Mbit",
+      "MiB",
+      "PB",
+      "PiB",
+      "TB",
+      "TiB",
+      "YB",
+      "YiB",
+      "ZB",
+      "ZiB",
+      "bit",
+      "kB",
+      "kbit"
+    ],
+    "distance": [
+      "cm",
+      "ft",
+      "in",
+      "km",
+      "m",
+      "mi",
+      "mm",
+      "nmi",
+      "yd"
+    ],
+    "duration": [
+      "d",
+      "h",
+      "min",
+      "ms",
+      "s",
+      "μs"
+    ],
+    "energy": [
+      "GJ",
+      "GWh",
+      "Gcal",
+      "J",
+      "MJ",
+      "MWh",
+      "Mcal",
+      "TWh",
+      "Wh",
+      "cal",
+      "kJ",
+      "kWh",
+      "kcal",
+      "mWh"
+    ],
+    "energy_distance": [
+      "Wh/km",
+      "kWh/100km",
+      "km/kWh",
+      "mi/kWh"
+    ],
+    "energy_storage": [
+      "GJ",
+      "GWh",
+      "Gcal",
+      "J",
+      "MJ",
+      "MWh",
+      "Mcal",
+      "TWh",
+      "Wh",
+      "cal",
+      "kJ",
+      "kWh",
+      "kcal",
+      "mWh"
+    ],
+    "frequency": [
+      "GHz",
+      "Hz",
+      "MHz",
+      "kHz",
+      "mHz"
+    ],
+    "gas": [
+      "CCF",
+      "L",
+      "MCF",
+      "ft³",
+      "m³"
+    ],
+    "humidity": [
+      "%"
+    ],
+    "illuminance": [
+      "lx"
+    ],
+    "irradiance": [
+      "BTU/(h⋅ft²)",
+      "W/m²"
+    ],
+    "moisture": [
+      "%"
+    ],
+    "nitrogen_dioxide": [
+      "ppb",
+      "ppm",
+      "μg/m³"
+    ],
+    "nitrogen_monoxide": [
+      "ppb",
+      "μg/m³"
+    ],
+    "nitrous_oxide": [
+      "μg/m³"
+    ],
+    "ozone": [
+      "ppb",
+      "ppm",
+      "μg/m³"
+    ],
+    "ph": [],
+    "pm1": [
+      "μg/m³"
+    ],
+    "pm10": [
+      "μg/m³"
+    ],
+    "pm25": [
+      "μg/m³"
+    ],
+    "pm4": [
+      "μg/m³"
+    ],
+    "power": [
+      "GW",
+      "MW",
+      "TW",
+      "W",
+      "kW",
+      "mW"
+    ],
+    "power_factor": [
+      "%"
+    ],
+    "precipitation": [
+      "cm",
+      "in",
+      "mm"
+    ],
+    "precipitation_intensity": [
+      "in/d",
+      "in/h",
+      "mm/d",
+      "mm/h"
+    ],
+    "pressure": [
+      "Pa",
+      "bar",
+      "cbar",
+      "hPa",
+      "inHg",
+      "inH₂O",
+      "kPa",
+      "mPa",
+      "mbar",
+      "mmHg",
+      "psi"
+    ],
+    "radon": [
+      "Bq/m³",
+      "pCi/L"
+    ],
+    "reactive_energy": [
+      "kvarh",
+      "varh"
+    ],
+    "reactive_power": [
+      "kvar",
+      "mvar",
+      "var"
+    ],
+    "signal_strength": [
+      "dB",
+      "dBm"
+    ],
+    "sound_pressure": [
+      "dB",
+      "dBA"
+    ],
+    "speed": [
+      "Beaufort",
+      "ft/s",
+      "in/d",
+      "in/h",
+      "in/s",
+      "km/h",
+      "kn",
+      "m/min",
+      "m/s",
+      "mm/d",
+      "mm/h",
+      "mm/s",
+      "mph"
+    ],
+    "sulphur_dioxide": [
+      "ppb",
+      "μg/m³"
+    ],
+    "temperature": [
+      "K",
+      "°C",
+      "°F"
+    ],
+    "temperature_delta": [
+      "K",
+      "°C",
+      "°F"
+    ],
+    "volatile_organic_compounds": [
+      "mg/m³",
+      "μg/m³"
+    ],
+    "volatile_organic_compounds_parts": [
+      "ppb",
+      "ppm"
+    ],
+    "voltage": [
+      "MV",
+      "V",
+      "kV",
+      "mV",
+      "μV"
+    ],
+    "volume": [
+      "CCF",
+      "L",
+      "MCF",
+      "fl. oz.",
+      "ft³",
+      "gal",
+      "mL",
+      "m³"
+    ],
+    "volume_flow_rate": [
+      "L/h",
+      "L/min",
+      "L/s",
+      "ft³/min",
+      "gal/d",
+      "gal/h",
+      "gal/min",
+      "mL/s",
+      "m³/h",
+      "m³/min",
+      "m³/s"
+    ],
+    "volume_storage": [
+      "CCF",
+      "L",
+      "MCF",
+      "fl. oz.",
+      "ft³",
+      "gal",
+      "mL",
+      "m³"
+    ],
+    "water": [
+      "CCF",
+      "L",
+      "MCF",
+      "ft³",
+      "gal",
+      "m³"
+    ],
+    "weight": [
+      "g",
+      "kg",
+      "lb",
+      "mg",
+      "oz",
+      "st",
+      "μg"
+    ],
+    "wind_direction": [
+      "°"
+    ],
+    "wind_speed": [
+      "Beaufort",
+      "ft/s",
+      "in/s",
+      "km/h",
+      "kn",
+      "m/min",
+      "m/s",
+      "mm/s",
+      "mph"
+    ]
+  },
+  "sensor_default_precision_limit": 2,
+  "sensor_device_class_state_classes": {
+    "absolute_humidity": [
+      "measurement"
+    ],
+    "apparent_power": [
+      "measurement"
+    ],
+    "aqi": [
+      "measurement"
+    ],
+    "area": [
+      "measurement",
+      "measurement_angle",
+      "total",
+      "total_increasing"
+    ],
+    "atmospheric_pressure": [
+      "measurement"
+    ],
+    "battery": [
+      "measurement"
+    ],
+    "blood_glucose_concentration": [
+      "measurement"
+    ],
+    "carbon_dioxide": [
+      "measurement"
+    ],
+    "carbon_monoxide": [
+      "measurement"
+    ],
+    "conductivity": [
+      "measurement"
+    ],
+    "current": [
+      "measurement"
+    ],
+    "data_rate": [
+      "measurement"
+    ],
+    "data_size": [
+      "measurement",
+      "measurement_angle",
+      "total",
+      "total_increasing"
+    ],
+    "date": [],
+    "distance": [
+      "measurement",
+      "measurement_angle",
+      "total",
+      "total_increasing"
+    ],
+    "duration": [
+      "measurement",
+      "measurement_angle",
+      "total",
+      "total_increasing"
+    ],
+    "energy": [
+      "total",
+      "total_increasing"
+    ],
+    "energy_distance": [
+      "measurement"
+    ],
+    "energy_storage": [
+      "measurement"
+    ],
+    "enum": [],
+    "frequency": [
+      "measurement"
+    ],
+    "gas": [
+      "total",
+      "total_increasing"
+    ],
+    "humidity": [
+      "measurement"
+    ],
+    "illuminance": [
+      "measurement"
+    ],
+    "irradiance": [
+      "measurement"
+    ],
+    "moisture": [
+      "measurement"
+    ],
+    "monetary": [
+      "total"
+    ],
+    "nitrogen_dioxide": [
+      "measurement"
+    ],
+    "nitrogen_monoxide": [
+      "measurement"
+    ],
+    "nitrous_oxide": [
+      "measurement"
+    ],
+    "ozone": [
+      "measurement"
+    ],
+    "ph": [
+      "measurement"
+    ],
+    "pm1": [
+      "measurement"
+    ],
+    "pm10": [
+      "measurement"
+    ],
+    "pm25": [
+      "measurement"
+    ],
+    "pm4": [
+      "measurement"
+    ],
+    "power": [
+      "measurement"
+    ],
+    "power_factor": [
+      "measurement"
+    ],
+    "precipitation": [
+      "measurement",
+      "measurement_angle",
+      "total",
+      "total_increasing"
+    ],
+    "precipitation_intensity": [
+      "measurement"
+    ],
+    "pressure": [
+      "measurement"
+    ],
+    "radon": [
+      "measurement"
+    ],
+    "reactive_energy": [
+      "total",
+      "total_increasing"
+    ],
+    "reactive_power": [
+      "measurement"
+    ],
+    "signal_strength": [
+      "measurement"
+    ],
+    "sound_pressure": [
+      "measurement"
+    ],
+    "speed": [
+      "measurement"
+    ],
+    "sulphur_dioxide": [
+      "measurement"
+    ],
+    "temperature": [
+      "measurement"
+    ],
+    "temperature_delta": [
+      "measurement"
+    ],
+    "timestamp": [],
+    "uptime": [],
+    "volatile_organic_compounds": [
+      "measurement"
+    ],
+    "volatile_organic_compounds_parts": [
+      "measurement"
+    ],
+    "voltage": [
+      "measurement"
+    ],
+    "volume": [
+      "total",
+      "total_increasing"
+    ],
+    "volume_flow_rate": [
+      "measurement"
+    ],
+    "volume_storage": [
+      "measurement"
+    ],
+    "water": [
+      "total",
+      "total_increasing"
+    ],
+    "weight": [
+      "measurement",
+      "total",
+      "total_increasing"
+    ],
+    "wind_direction": [
+      "measurement_angle"
+    ],
+    "wind_speed": [
+      "measurement"
+    ]
+  },
+  "sensor_units_precision": {
+    "absolute_humidity": {
+      "precision": 1,
+      "unit": "g/m³"
+    },
+    "apparent_power": {
+      "precision": 0,
+      "unit": "VA"
+    },
+    "area": {
+      "precision": 0,
+      "unit": "cm²"
+    },
+    "atmospheric_pressure": {
+      "precision": 0,
+      "unit": "Pa"
+    },
+    "blood_glucose_concentration": {
+      "precision": 0,
+      "unit": "mg/dL"
+    },
+    "conductivity": {
+      "precision": 1,
+      "unit": "μS/cm"
+    },
+    "current": {
+      "precision": 0,
+      "unit": "mA"
+    },
+    "data_rate": {
+      "precision": 0,
+      "unit": "kbit/s"
+    },
+    "data_size": {
+      "precision": 0,
+      "unit": "kbit"
+    },
+    "distance": {
+      "precision": 0,
+      "unit": "cm"
+    },
+    "duration": {
+      "precision": 0,
+      "unit": "ms"
+    },
+    "energy": {
+      "precision": 0,
+      "unit": "Wh"
+    },
+    "energy_distance": {
+      "precision": 0,
+      "unit": "km/kWh"
+    },
+    "energy_storage": {
+      "precision": 0,
+      "unit": "Wh"
+    },
+    "frequency": {
+      "precision": 0,
+      "unit": "Hz"
+    },
+    "gas": {
+      "precision": 0,
+      "unit": "mL"
+    },
+    "irradiance": {
+      "precision": 0,
+      "unit": "W/m²"
+    },
+    "power": {
+      "precision": 0,
+      "unit": "W"
+    },
+    "precipitation": {
+      "precision": 0,
+      "unit": "cm"
+    },
+    "precipitation_intensity": {
+      "precision": 0,
+      "unit": "mm/h"
+    },
+    "pressure": {
+      "precision": 0,
+      "unit": "Pa"
+    },
+    "radon": {
+      "precision": 1,
+      "unit": "pCi/L"
+    },
+    "reactive_power": {
+      "precision": 0,
+      "unit": "var"
+    },
+    "sound_pressure": {
+      "precision": 0,
+      "unit": "dB"
+    },
+    "speed": {
+      "precision": 0,
+      "unit": "mm/s"
+    },
+    "temperature": {
+      "precision": 1,
+      "unit": "K"
+    },
+    "temperature_delta": {
+      "precision": 1,
+      "unit": "K"
+    },
+    "voltage": {
+      "precision": 0,
+      "unit": "V"
+    },
+    "volume": {
+      "precision": 0,
+      "unit": "mL"
+    },
+    "volume_flow_rate": {
+      "precision": 0,
+      "unit": "L/s"
+    },
+    "volume_storage": {
+      "precision": 0,
+      "unit": "mL"
+    },
+    "water": {
+      "precision": 0,
+      "unit": "mL"
+    },
+    "weight": {
+      "precision": 0,
+      "unit": "g"
+    },
+    "wind_speed": {
+      "precision": 0,
+      "unit": "mm/s"
+    }
+  }
+}
