@@ -40,8 +40,13 @@ jobs:
     if: github.repository_owner == 'SukramJ'
     runs-on: ubuntu-latest
     steps:
-      # Checked out with the PAT: a tag pushed with GITHUB_TOKEN does not
-      # trigger release-on-tag.yml, so the release would never be created.
+      # Checked out with the PAT for two reasons. A tag pushed with
+      # GITHUB_TOKEN does not trigger release-on-tag.yml, so the release would
+      # never be created. And `main` requires a pull request, which this
+      # workflow does not open — it pushes straight to main, which only works
+      # because branch protection sets enforce_admins: false and RELEASE_PAT
+      # belongs to a repository admin. If either changes, this workflow starts
+      # failing on the push, and the fix is to open an auto-merge PR instead.
       - name: Checkout go-ha-catalog
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
