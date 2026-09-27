@@ -90,8 +90,22 @@ auto-merges non-major bumps, which is where the review gate belongs.
 
 `.github/workflows/regenerate-on-ha-release.yml` polls the
 `home-assistant/core` releases API daily, regenerates on a new stable tag, and
-commits, tags and releases **only when the catalog actually changed**. Betas
-are skipped.
+opens an auto-merge pull request from a `regen/ha-<tag>` branch. Betas are
+skipped. Every regeneration gets a PR, vocabulary-neutral ones included —
+without the committed stamp the poll would re-extract the same release forever.
+
+Tagging is a second workflow, `tag-on-regen-merge.yml`, firing when a `regen/`
+branch lands on main. It recomputes hadiff's verdict from the diff that
+actually merged rather than trusting the one the regeneration run computed, so
+a release happens **only when the catalog actually changed** while the stamp
+merges either way.
+
+Both need `RELEASE_PAT` with `contents: write` and `pull-requests: write` on
+this repository. `GITHUB_TOKEN` cannot do either half: a branch it pushes and
+a PR it opens trigger neither `ci.yml` nor `codeql.yml`, so the five required
+checks never report and auto-merge waits forever; and a tag it pushes does not
+trigger `release-on-tag.yml`. A token without write access fails at the branch
+push, not at checkout — this repo is public, so the clone succeeds either way.
 
 ## Conventions
 

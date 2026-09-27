@@ -1,0 +1,135 @@
+name: "Release: tag a merged regeneration"
+# Pushes the module tag for a regeneration pull request once it lands on main.
+#
+# Tagging cannot live in regenerate-on-ha-release.yml any more: that workflow
+# ends at an auto-merge PR and the merge is asynchronous, so a tag pushed there
+# would point at a branch commit that may never become main.
+#
+# The verdict is not carried over from the regeneration run. It is recomputed
+# here from the diff that actually landed, so the tag describes main's real
+# content even if the PR was edited or rebased between opening and merging.
+#
+# Bump mapping (see script/next-version.sh for why the module stays in v0.x):
+#   hadiff "major" (a Go constant disappeared) -> minor bump
+#   hadiff "minor" (additive)                  -> patch bump
+#   hadiff "none"                              -> no tag, the stamp merges alone
+#
+# To cut a release the diff does not justify — re-releasing an unchanged
+# catalog, say — push the tag by hand: release-on-tag.yml treats a hand-pushed
+# tag and an automatic one identically.
+#
+# yamllint disable-line rule:truthy
+on:
+  pull_request:
+    types: [closed]
+    branches: [main]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: tag-regen
+  cancel-in-progress: false
+
+jobs:
+  tag:
+    if: >-
+      github.repository_owner == 'SukramJ'
+      && github.event.pull_request.merged == true
+      && startsWith(github.event.pull_request.head.ref, 'regen/')
+    name: Tag ${{ github.event.pull_request.head.ref }}
+    runs-on: ubuntu-latest
+    steps:
+      # The PAT for the same reason release automation always needs one here: a
+      # tag pushed with GITHUB_TOKEN does not trigger release-on-tag.yml, so the
+      # GitHub Release would never be created.
+      - name: Checkout main
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          token: ${{ secrets.RELEASE_PAT }}
+          ref: main
+          # next-version.sh reads the tag list, and hadiff needs the commit the
+          # merge landed on top of.
+          fetch-depth: 0
+
+      - name: Set up Go
+        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: go.mod
+          cache: true
+
+      - name: Locate the merged commit
+        id: merged
+        env:
+          MERGE_SHA: ${{ github.event.pull_request.merge_commit_sha }}
+        run: |
+          set -euo pipefail
+          # Squash is the only merge method this repository allows, so this is
+          # the single commit the PR became on main. Checked rather than
+          # assumed: if the checkout raced the merge, tagging whatever HEAD
+          # happens to be is worse than failing here.
+          [ -n "$MERGE_SHA" ] || { echo "no merge_commit_sha in the event payload" >&2; exit 1; }
+          git merge-base --is-ancestor "$MERGE_SHA" HEAD || {
+            echo "$MERGE_SHA is not on main — refusing to tag" >&2
+            exit 1
+          }
+          echo "sha=$MERGE_SHA" >> "$GITHUB_OUTPUT"
+
+      - name: Classify what landed
+        id: diff
+        env:
+          SHA: ${{ steps.merged.outputs.sha }}
+        run: |
+          set -euo pipefail
+          # hadiff compares directories, so both sides have to be materialised
+          # out of git rather than diffed in place.
+          rm -rf /tmp/before /tmp/after
+          mkdir -p /tmp/before /tmp/after
+          git archive "${SHA}^" data | tar -x -C /tmp/before
+          git archive "${SHA}"  data | tar -x -C /tmp/after
+
+          go build -o /tmp/hadiff ./script/hadiff
+          # hadiff exits non-zero to signal a verdict, so it must not abort the
+          # step; the JSON is the contract, the exit code only a convenience.
+          set +e
+          /tmp/hadiff -old /tmp/before/data -new /tmp/after/data -format json > /tmp/hadiff.json
+          set -e
+          cat /tmp/hadiff.json
+          echo "bump=$(jq -r .bump /tmp/hadiff.json)" >> "$GITHUB_OUTPUT"
+          /tmp/hadiff -old /tmp/before/data -new /tmp/after/data > /tmp/hadiff.txt || true
+
+      - name: Tag and release
+        if: steps.diff.outputs.bump != 'none'
+        env:
+          SHA: ${{ steps.merged.outputs.sha }}
+          BUMP: ${{ steps.diff.outputs.bump }}
+        run: |
+          set -euo pipefail
+          VERSION="$(script/next-version.sh "$BUMP")"
+          # Read the snapshot off the commit being tagged, not off the PR
+          # title — the committed constant is the one consumers will see.
+          UPSTREAM="$(git show "${SHA}:hacatalog.go" |
+            sed -n 's/^const SnapshotVersion = "\(.*\)"$/\1/p')"
+          [ -n "$UPSTREAM" ] || { echo "SnapshotVersion not found in ${SHA}" >&2; exit 1; }
+
+          if [ "$BUMP" = "major" ]; then
+            SUBJECT="feat(catalog)!: Home Assistant ${UPSTREAM} (vocabulary removals)"
+          else
+            SUBJECT="feat(catalog): Home Assistant ${UPSTREAM}"
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # The hadiff report rides in the tag annotation rather than in a
+          # committed file: release-on-tag.yml reads it back from there, so
+          # nothing stale is left in the tree for the next release to inherit.
+          { echo "$SUBJECT"; echo; cat /tmp/hadiff.txt; } > /tmp/tag-message.txt
+          git tag -a -F /tmp/tag-message.txt "$VERSION" "$SHA"
+          git push origin "$VERSION"
+          echo "released $VERSION ($BUMP) from Home Assistant $UPSTREAM"
+
+      - name: No tag (vocabulary unchanged)
+        if: steps.diff.outputs.bump == 'none'
+        run: |
+          echo "The merged regeneration moved no vocabulary — snapshot stamp only, no tag."
