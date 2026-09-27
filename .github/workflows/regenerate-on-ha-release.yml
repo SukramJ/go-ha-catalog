@@ -1,19 +1,22 @@
 name: "Regenerate: on Home Assistant release"
-# Regenerates the catalog whenever Home Assistant ships a stable release, and
-# tags and releases it — unattended.
+# Regenerates the catalog whenever Home Assistant ships a stable release and
+# opens a pull request with the result — unattended, auto-merged as soon as the
+# required checks are green.
 #
 # Home Assistant cannot fire a repository_dispatch at us the way openccu-data
 # can, so the trigger is a poll of its releases API. Betas are skipped.
 #
 # Every stable release triggers a regeneration, patch releases included: Home
 # Assistant ships many of those and most never touch the vocabulary, so the
-# guard against tag noise is not the trigger but the diff — hadiff decides
-# whether anything is published at all.
+# guard against tag noise is not the trigger but the diff. A vocabulary-neutral
+# release still gets a PR — without the committed stamp the daily poll would
+# re-extract the same release forever — it just produces no tag.
 #
-# Bump mapping (see script/next-version.sh for why the module stays in v0.x):
-#   hadiff "major" (a Go constant disappeared) -> minor bump
-#   hadiff "minor" (additive)                  -> patch bump
-#   hadiff "none"                              -> stamp only, no tag
+# Tagging does not happen here. This workflow ends at the pull request, and
+# tag-on-regen-merge.yml pushes the tag once the PR lands on main: the merge is
+# asynchronous, so a tag pushed from this job would point at a branch commit
+# that may never become main at all.
+#
 # yamllint disable-line rule:truthy
 on:
   schedule:
@@ -24,12 +27,13 @@ on:
         description: "home-assistant/core tag to regenerate from (default: latest stable)"
         required: false
       force:
-        description: "release even when the catalog is unchanged"
+        description: "re-extract even when the stamp already matches upstream"
         type: boolean
         default: false
 
 permissions:
   contents: write
+  pull-requests: write
 
 concurrency:
   group: regenerate
@@ -40,18 +44,20 @@ jobs:
     if: github.repository_owner == 'SukramJ'
     runs-on: ubuntu-latest
     steps:
-      # Checked out with the PAT for two reasons. A tag pushed with
-      # GITHUB_TOKEN does not trigger release-on-tag.yml, so the release would
-      # never be created. And `main` requires a pull request, which this
-      # workflow does not open — it pushes straight to main, which only works
-      # because branch protection sets enforce_admins: false and RELEASE_PAT
-      # belongs to a repository admin. If either changes, this workflow starts
-      # failing on the push, and the fix is to open an auto-merge PR instead.
+      # Checked out with the PAT rather than GITHUB_TOKEN: a branch pushed and
+      # a pull request opened with GITHUB_TOKEN do not trigger ci.yml or
+      # codeql.yml, so the five required status checks would never report and
+      # auto-merge would wait forever.
+      #
+      # The PAT therefore needs contents:write and pull-requests:write on this
+      # repository. A read-only token does not fail at checkout — this repo is
+      # public, so the clone succeeds — it fails at the branch push with
+      # "Permission to SukramJ/go-ha-catalog.git denied to SukramJ" and a 403.
       - name: Checkout go-ha-catalog
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           token: ${{ secrets.RELEASE_PAT }}
-          fetch-depth: 0 # next-version.sh reads the tag list
+          fetch-depth: 0 # the regen branch may already exist from an earlier poll
 
       - name: Resolve the Home Assistant release to track
         id: resolve
@@ -113,6 +119,8 @@ jobs:
         if: steps.resolve.outputs.skip != 'true'
         run: script/regenerate.sh ha-core
 
+      # Only for the PR title and body. The verdict that decides the tag is
+      # recomputed after the merge, from what actually landed on main.
       - name: Classify the change
         if: steps.resolve.outputs.skip != 'true'
         id: diff
@@ -135,57 +143,80 @@ jobs:
           CGO_ENABLED: "1"
         run: go test -race -count=1 -timeout=120s ./...
 
-      # The vocabulary did not move. Commit the snapshot stamp anyway — without
-      # it the next scheduled run would re-extract the same release forever —
-      # but publish no tag, which is what keeps Home Assistant's many
-      # vocabulary-neutral patch releases from generating tag noise.
-      - name: Commit the stamp only (catalog unchanged)
-        if: steps.resolve.outputs.skip != 'true' && steps.diff.outputs.bump == 'none' && github.event.inputs.force != 'true'
-        run: |
-          set -euo pipefail
-          rm -rf ha-core .venv
-          if [ -z "$(git status --porcelain)" ]; then
-            echo "nothing changed at all"
-            exit 0
-          fi
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add -A
-          git commit -m "chore(catalog): track Home Assistant ${{ steps.resolve.outputs.upstream }} (no vocabulary change)"
-          git push origin HEAD:main
-
-      - name: Release
-        if: steps.resolve.outputs.skip != 'true' && (steps.diff.outputs.bump != 'none' || github.event.inputs.force == 'true')
+      # One pull request per regeneration, vocabulary-neutral or not. Whether
+      # it also becomes a release is decided after the merge — see
+      # tag-on-regen-merge.yml.
+      - name: Open the regeneration PR
+        if: steps.resolve.outputs.skip != 'true'
         env:
+          GH_TOKEN: ${{ secrets.RELEASE_PAT }}
           UPSTREAM: ${{ steps.resolve.outputs.upstream }}
           BUMP: ${{ steps.diff.outputs.bump }}
         run: |
           set -euo pipefail
           rm -rf ha-core .venv
 
-          # `[ x ] && y` would abort the step under `set -e` whenever the test
-          # is false, which is the common case here.
-          if [ -z "$BUMP" ] || [ "$BUMP" = "none" ]; then
-            BUMP="minor"   # reachable only via the `force` input
-          fi
-          VERSION="$(script/next-version.sh "$BUMP")"
-
-          if [ "$BUMP" = "major" ]; then
-            SUBJECT="feat(catalog)!: Home Assistant ${UPSTREAM} (vocabulary removals)"
-          else
-            SUBJECT="feat(catalog): Home Assistant ${UPSTREAM}"
+          # `git status --porcelain` also catches untracked files (a data file
+          # for a platform that did not exist before) — `git diff` would miss
+          # them.
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "nothing changed at all"
+            exit 0
           fi
 
+          case "$BUMP" in
+          major) SUBJECT="feat(catalog)!: Home Assistant ${UPSTREAM} (vocabulary removals)" ;;
+          none)  SUBJECT="chore(catalog): track Home Assistant ${UPSTREAM} (no vocabulary change)" ;;
+          *)     SUBJECT="feat(catalog): Home Assistant ${UPSTREAM}" ;;
+          esac
+
+          BRANCH="regen/ha-${UPSTREAM}"
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+          git switch -c "$BRANCH"
           git add -A
           git commit -m "$SUBJECT"
-          git push origin HEAD:main
 
-          # The hadiff report rides in the tag annotation rather than in a
-          # committed file: release-on-tag.yml reads it back from there, so
-          # nothing stale is left in the tree for the next release to inherit.
-          { echo "$SUBJECT"; echo; cat /tmp/hadiff.txt; } > /tmp/tag-message.txt
-          git tag -a "$VERSION" -F /tmp/tag-message.txt
-          git push origin "$VERSION"
-          echo "released $VERSION ($BUMP) from Home Assistant $UPSTREAM"
+          # The daily poll keeps resolving the same upstream tag until the
+          # stamp is on main, so this branch can already exist from a run whose
+          # PR is still open. Overwrite it instead of failing the job every day
+          # until someone looks.
+          git push --force-with-lease -u origin "$BRANCH"
+
+          {
+            echo "Automated regeneration from Home Assistant \`${UPSTREAM}\`."
+            echo
+            echo "hadiff verdict: \`${BUMP}\`"
+            echo
+            echo '```'
+            cat /tmp/hadiff.txt
+            echo '```'
+            echo
+            if [ "$BUMP" = "none" ]; then
+              echo "The vocabulary did not move, so no tag follows this merge — that is what"
+              echo "keeps Home Assistant's many vocabulary-neutral patch releases from"
+              echo "generating tag noise. The PR carries the snapshot stamp only, without"
+              echo "which the daily poll would re-extract \`${UPSTREAM}\` forever."
+            else
+              echo "\`tag-on-regen-merge.yml\` tags and releases this once it lands on main."
+            fi
+          } > /tmp/pr-body.md
+
+          # Matched on state, not just on the branch: `gh pr view <branch>`
+          # also resolves a PR that was closed unmerged, and editing that one
+          # would leave the new branch without a PR at all.
+          PR="$(gh pr list --head "$BRANCH" --state open --json number --jq '.[0].number // empty')"
+          if [ -n "$PR" ]; then
+            gh pr edit "$PR" --title "$SUBJECT" --body-file /tmp/pr-body.md
+          else
+            PR="$(gh pr create --base main --head "$BRANCH" \
+              --title "$SUBJECT" --body-file /tmp/pr-body.md)"
+          fi
+
+          # Asking first rather than relying on `gh pr merge --auto` being a
+          # no-op the second time round: on a re-run the PR already has
+          # auto-merge armed, and a daily job that fails on that is noise.
+          if [ "$(gh pr view "$PR" --json autoMergeRequest --jq '.autoMergeRequest != null')" != "true" ]; then
+            gh pr merge --auto --squash "$PR"
+          fi
+          echo "regeneration PR: $PR"
