@@ -30,12 +30,12 @@ import (
 
 // SnapshotVersion is the Home Assistant release this catalog was generated
 // from, in Home Assistant's own CalVer.
-const SnapshotVersion = "2026.9.1"
+const SnapshotVersion = "2026.9.4"
 
 // SnapshotRef is the exact core checkout the generator ran against, as
 // `git describe --tags` reported it. It exists to diagnose drift: two catalogs
 // can share a SnapshotVersion and still differ if one was cut from a beta.
-const SnapshotRef = "2026.9.0b9-31-g76ca483aec0"
+const SnapshotRef = "2026.9.4"
 
 // The `all:` prefix is required. Without it `go:embed` silently skips files
 // whose names begin with `_` or `.`, and the omission only surfaces at runtime
