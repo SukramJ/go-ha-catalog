@@ -1,3 +1,3 @@
 module github.com/SukramJ/go-ha-catalog
 
-go 1.26
+go 1.27
