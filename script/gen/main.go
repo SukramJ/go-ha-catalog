@@ -171,7 +171,7 @@ package hacatalog
 }
 
 func writeType(b *bytes.Buffer, name, doc string, values []string) {
-	for _, line := range strings.Split(doc, "\n") {
+	for line := range strings.SplitSeq(doc, "\n") {
 		fmt.Fprintf(b, "// %s\n", line)
 	}
 	fmt.Fprintf(b, "type %s string\n\n", name)
