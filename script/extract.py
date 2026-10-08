@@ -137,6 +137,9 @@ _TYPE_BY_NAME = {
     "positive_float": "float",
     "ensure_list": "list",
     "ensure_list_csv": "list",
+    # HA 2026.10 replaced cv.ensure_list with an instance of probatio's
+    # EnsureList class, which carries no __name__ — it is matched by class name.
+    "EnsureList": "list",
     "string": "str",
     "template": "str",
     "valid_subscribe_topic": "str",
