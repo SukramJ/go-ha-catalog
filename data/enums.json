@@ -20,6 +20,7 @@
     "door",
     "garage_door",
     "gas",
+    "glass_break",
     "heat",
     "light",
     "lock",
@@ -125,7 +126,8 @@
     "paused",
     "mowing",
     "docked",
-    "returning"
+    "returning",
+    "idle"
   ],
   "lock_state": [
     "jammed",

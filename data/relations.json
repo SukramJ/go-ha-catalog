@@ -39,6 +39,7 @@
     ],
     "atmospheric_pressure": [
       "Pa",
+      "atm",
       "bar",
       "cbar",
       "hPa",
@@ -145,7 +146,8 @@
       "kJ",
       "kWh",
       "kcal",
-      "mWh"
+      "mWh",
+      "thm"
     ],
     "energy_distance": [
       "Wh/km",
@@ -167,7 +169,8 @@
       "kJ",
       "kWh",
       "kcal",
-      "mWh"
+      "mWh",
+      "thm"
     ],
     "frequency": [
       "GHz",
@@ -250,6 +253,7 @@
     ],
     "pressure": [
       "Pa",
+      "atm",
       "bar",
       "cbar",
       "hPa",
