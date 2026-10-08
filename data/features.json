@@ -47,7 +47,8 @@
   "lawn_mower": {
     "DOCK": 4,
     "PAUSE": 2,
-    "START_MOWING": 1
+    "START_MOWING": 1,
+    "STOP": 8
   },
   "light": {
     "EFFECT": 4,
