@@ -1,3 +1,3 @@
-module github.com/SukramJ/go-ha-catalog
+module sukramj.dev/go-ha-catalog
 
 go 1.27.4

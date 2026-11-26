@@ -12,7 +12,7 @@ SHELL := /usr/bin/env bash
 GO            ?= go
 GOFUMPT       ?= gofumpt
 GOLANGCI_LINT ?= golangci-lint
-MODULE        := github.com/SukramJ/go-ha-catalog
+MODULE        := sukramj.dev/go-ha-catalog
 
 export CGO_ENABLED := 0
 
