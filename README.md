@@ -18,7 +18,7 @@ checkout and regenerated automatically on every stable Home Assistant release.
 ## Usage
 
 ```go
-import hacatalog "github.com/SukramJ/go-ha-catalog"
+import hacatalog "sukramj.dev/go-ha-catalog"
 
 // Typed vocabularies — the compiler catches the typo.
 dc := hacatalog.SensorDeviceClassEnergy
